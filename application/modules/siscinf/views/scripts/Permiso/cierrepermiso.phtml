@@ -1,0 +1,76 @@
+        <div dojoType="dijit.layout.AccordionContainer">          
+            <div dojoType="dijit.layout.ContentPane" title="CIERRE DE PERMISOS" selected="true" align="center">
+                <table width="95%" border="0">
+                <tr>
+                <td>
+	               <div id="mostrarform" style="display: ;" align="center">
+	               <br>
+	                <fieldset id="el11">
+					  <legend style="color:blue;">	Informacion requerida</legend>
+						<table border="0" cellspacing="2" width="100%">
+						   <tr>
+						   <td width="20%" ><label class="estilotxtop"> Buscar: </label></td>
+						   <td width="20%" ><select 		
+						   						id				="buscar"  
+					                 			name			="buscar"  
+					                 			value			=""
+					                 			style			="width:150px;font:12px;" 
+					                 			dojoType		="dijit.form.FilteringSelect" 
+					                 			autoComplete	="true">
+					                 			<option value="Todos">Todos</option>
+					                   </select>
+						   </td>
+						   <td width="10%"></td>
+					   		<td width="20%"></td>
+					        <td width="20%"></td>		                 				   		   
+						   </tr>
+						   <tr>
+							<td colspan="2"></td>
+							<td>
+								 <div align="right">
+									<button dojoType="dijit.form.Button" onclick="cierrepermisos();"><img src="<?php echo $this->baseUrl();?>/imagenes/search_icon.png" height="28px" width="28px"/>Buscar</button>
+				                 </div>
+							</td>
+							<td colspan="5">
+							<div id="idEspera" style="display: none;" align="left">
+			                 		<img  src="<?php echo $this->baseUrl();?>/imagenes/espera.gif" height="32px" width="32px"/>
+			                 	</div>
+							</td>
+						</tr>
+						<tr>
+							<td colspan="5">			
+					          <table dojotype="dojox.grid.DataGrid" id="grilla" jsId="grilla" height="250px" style="font-size:11px;border: 1px solid #9AC4D8;">
+					            <thead>
+					              <tr>
+					                <th width="25px" formatter="checkFormatter1"></th>
+					                <th field="perm_id" hidden="true">Id</th>
+					                <th field="perm_cedula" width="70px">C&eacute;dula</th>
+					                <th field="perm_apenom" width="250px">Apellidos y Nombres</th>
+					                <th field="perm_fecha" width="80px">Fecha</th>	
+					                <th field="perm_hora_salida" width="80px">Hora de Salida</th>
+					                <th field="perm_observacion" width="100px">Observacion</th>	                
+					                <th field="perm_estado" width="10%" formatter="estadoFormatter">Estado</th>
+					              </tr>
+					            </thead>
+					        </table>
+							</td>							
+						</tr>
+						<tr><td colspan="5"><div style="font-family:'Trebuchet MS', Helvetica, sans-serif;font-size:11px;font: bold; color: #9AC4D8;">Nota: Para imprimir el permiso debe seleccionar la fila.</div></td></tr>
+						<tr>
+						   <td colspan="5">
+							<div align="center">
+							   <button id="btnCerrar" name="btnCerrar" class="estilotxtop" dojoType="dijit.form.Button" onclick="cerrarpermiso();"><img src="<?php echo $this->baseUrl();?>/imagenes/cerrado.png" height="32px" width="32px"/>
+							     Cerrar Ticket de Permiso
+							   </button>
+							</div>
+						   </td>
+						</tr>
+						</table>
+	               </fieldset>
+	               <br>
+				   </div>
+               </td>
+               </tr>
+               </table>
+            </div>            
+       </div>                                

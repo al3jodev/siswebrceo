@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="rptmenmach" language="groovy" pageWidth="595" pageHeight="842" whenNoDataType="AllSectionsNoDetail" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" isIgnorePagination="true">
+	<property name="ireport.zoom" value="3.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="157"/>
+	<parameter name="DIRECCION_LOGO" class="java.lang.String"/>
+	<parameter name="SUBREPORT_DIR" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA["C:\\xampp\\htdocs\\siswebrceo\\application\\modules\\siscp\\reports\\"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="FECI" class="java.util.Date">
+		<parameterDescription><![CDATA[]]></parameterDescription>
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="FECF" class="java.util.Date"/>
+	<parameter name="MES" class="java.lang.String"/>
+	<parameter name="C1" class="java.lang.String"/>
+	<parameter name="C2" class="java.lang.String"/>
+	<parameter name="C3" class="java.lang.String"/>
+	<parameter name="C4" class="java.lang.String"/>
+	<parameter name="C5" class="java.lang.String"/>
+	<parameter name="C6" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[]]>
+	</queryString>
+	<field name="op_id" class="java.lang.Long">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="op_cedula" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="op_nombres" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="op_apellidos" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<variable name="TOTAL_PV" class="java.math.BigDecimal" calculation="Sum">
+		<variableExpression><![CDATA[]]></variableExpression>
+	</variable>
+	<variable name="TOTAL_RE" class="java.math.BigDecimal" calculation="Sum">
+		<variableExpression><![CDATA[]]></variableExpression>
+	</variable>
+	<variable name="TOTAL_EN" class="java.math.BigDecimal" calculation="Sum">
+		<variableExpression><![CDATA[]]></variableExpression>
+	</variable>
+	<variable name="TOTAL_REC" class="java.math.BigDecimal" calculation="Sum">
+		<variableExpression><![CDATA[]]></variableExpression>
+	</variable>
+	<variable name="TOTAL" class="java.math.BigDecimal" calculation="Sum">
+		<variableExpression><![CDATA[]]></variableExpression>
+	</variable>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="79" splitType="Stretch">
+			<rectangle>
+				<reportElement x="0" y="0" width="555" height="79"/>
+			</rectangle>
+			<image>
+				<reportElement x="5" y="6" width="80" height="70"/>
+				<imageExpression class="java.lang.String"><![CDATA[$P{DIRECCION_LOGO}]]></imageExpression>
+			</image>
+			<staticText>
+				<reportElement x="70" y="8" width="485" height="25"/>
+				<textElement textAlignment="Center" verticalAlignment="Top">
+					<font fontName="SansSerif" size="16" isBold="true" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[DIRECCION PROVINCIAL DEL REGISTRO CIVIL DE EL ORO]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="70" y="33" width="469" height="20"/>
+				<textElement textAlignment="Center" markup="none">
+					<font size="14" isBold="true" isUnderline="false"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA["REPORTE DE PRODUCCION CENTROIDES"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="70" y="53" width="469" height="20"/>
+				<textElement textAlignment="Center" markup="none">
+					<font size="14" isBold="true" isUnderline="false"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$P{MES}]]></textFieldExpression>
+			</textField>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="5" splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="235" splitType="Stretch">
+			<subreport>
+				<reportElement x="-18" y="1" width="593" height="5"/>
+				<subreportParameter name="SUBREPORT_DIR">
+					<subreportParameterExpression><![CDATA[$P{SUBREPORT_DIR}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="FECI">
+					<subreportParameterExpression><![CDATA[$P{FECI}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="FECF">
+					<subreportParameterExpression><![CDATA[$P{FECF}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="CANTON">
+					<subreportParameterExpression><![CDATA[$P{C1}]]></subreportParameterExpression>
+				</subreportParameter>
+				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+				<subreportExpression class="java.lang.String"><![CDATA[$P{SUBREPORT_DIR} + "rptcentgb.jasper"]]></subreportExpression>
+			</subreport>
+			<subreport>
+				<reportElement positionType="Float" x="-18" y="6" width="593" height="5"/>
+				<subreportParameter name="SUBREPORT_DIR">
+					<subreportParameterExpression><![CDATA[$P{SUBREPORT_DIR}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="FECI">
+					<subreportParameterExpression><![CDATA[$P{FECI}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="FECF">
+					<subreportParameterExpression><![CDATA[$P{FECF}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="CANTON">
+					<subreportParameterExpression><![CDATA[$P{C2}]]></subreportParameterExpression>
+				</subreportParameter>
+				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+				<subreportExpression class="java.lang.String"><![CDATA[$P{SUBREPORT_DIR} + "rptcentpsj.jasper"]]></subreportExpression>
+			</subreport>
+			<subreport>
+				<reportElement positionType="Float" x="-18" y="11" width="593" height="5"/>
+				<subreportParameter name="SUBREPORT_DIR">
+					<subreportParameterExpression><![CDATA[$P{SUBREPORT_DIR}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="FECI">
+					<subreportParameterExpression><![CDATA[$P{FECI}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="FECF">
+					<subreportParameterExpression><![CDATA[$P{FECF}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="CANTON">
+					<subreportParameterExpression><![CDATA[$P{C3}]]></subreportParameterExpression>
+				</subreportParameter>
+				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+				<subreportExpression class="java.lang.String"><![CDATA[$P{SUBREPORT_DIR} + "rptcenthua.jasper"]]></subreportExpression>
+			</subreport>
+			<subreport>
+				<reportElement positionType="Float" x="-18" y="16" width="593" height="5"/>
+				<subreportParameter name="SUBREPORT_DIR">
+					<subreportParameterExpression><![CDATA[$P{SUBREPORT_DIR}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="FECI">
+					<subreportParameterExpression><![CDATA[$P{FECI}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="FECF">
+					<subreportParameterExpression><![CDATA[$P{FECF}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="CANTON">
+					<subreportParameterExpression><![CDATA[$P{C4}]]></subreportParameterExpression>
+				</subreportParameter>
+				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+				<subreportExpression class="java.lang.String"><![CDATA[$P{SUBREPORT_DIR} + "rptcentpns.jasper"]]></subreportExpression>
+			</subreport>
+			<subreport>
+				<reportElement positionType="Float" x="-18" y="21" width="593" height="5"/>
+				<subreportParameter name="SUBREPORT_DIR">
+					<subreportParameterExpression><![CDATA[$P{SUBREPORT_DIR}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="FECI">
+					<subreportParameterExpression><![CDATA[$P{FECI}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="FECF">
+					<subreportParameterExpression><![CDATA[$P{FECF}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="CANTON">
+					<subreportParameterExpression><![CDATA[$P{C5}]]></subreportParameterExpression>
+				</subreportParameter>
+				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+				<subreportExpression class="java.lang.String"><![CDATA[$P{SUBREPORT_DIR} + "rptcentstarosa.jasper"]]></subreportExpression>
+			</subreport>
+			<subreport>
+				<reportElement positionType="Float" x="-18" y="26" width="593" height="5"/>
+				<subreportParameter name="SUBREPORT_DIR">
+					<subreportParameterExpression><![CDATA[$P{SUBREPORT_DIR}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="FECI">
+					<subreportParameterExpression><![CDATA[$P{FECI}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="FECF">
+					<subreportParameterExpression><![CDATA[$P{FECF}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="CANTON">
+					<subreportParameterExpression><![CDATA[$P{C6}]]></subreportParameterExpression>
+				</subreportParameter>
+				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+				<subreportExpression class="java.lang.String"><![CDATA[$P{SUBREPORT_DIR} + "rptcentbrigada.jasper"]]></subreportExpression>
+			</subreport>
+		</band>
+	</columnHeader>
+	<pageFooter>
+		<band height="39" splitType="Stretch"/>
+	</pageFooter>
+</jasperReport>

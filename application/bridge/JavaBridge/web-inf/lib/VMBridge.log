@@ -1,0 +1,11 @@
+Oct 25 08:01:52 VMBridge INFO : VM                  : 1.6.0_30@http://java.sun.com/
+Oct 25 08:01:52 VMBridge INFO : VMBridge version             : 5.4.4.2    
+Oct 25 08:01:52 VMBridge INFO : logFile             : VMBridge.log
+Oct 25 08:01:52 VMBridge INFO : default logLevel    : 3
+Oct 25 08:01:52 VMBridge INFO : socket              : SERVLET:8080
+Oct 25 08:01:52 VMBridge INFO : java.ext.dirs       : C:\Program Files\Java\jre6\lib\ext;C:\Windows\Sun\Java\lib\ext
+Oct 25 08:01:52 VMBridge INFO : php.java.bridge.base: C:\Users\USER
+Oct 25 08:01:52 VMBridge INFO : thread pool size    : 20
+Oct 25 08:01:53 VMBridge INFO : JavaBridgeRunner started on port INET:8080
+log4j:WARN No appenders could be found for logger (net.sf.jasperreports.extensions.ExtensionsEnvironment).
+log4j:WARN Please initialize the log4j system properly.

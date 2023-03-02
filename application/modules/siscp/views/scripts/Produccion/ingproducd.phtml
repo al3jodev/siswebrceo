@@ -1,0 +1,336 @@
+        <div dojoType="dojo.data.ItemFileReadStore" jsId="voperadores" url="<?php echo $this->voperadores;?>"></div>
+        <div dojoType="dojo.data.ItemFileReadStore" jsId="terror" url="<?php echo $this->terror;?>"></div>
+        <div dojoType="dijit.layout.AccordionContainer">          
+            <div dojoType="dijit.layout.ContentPane" title="INGRESAR PRODUCCION DIARIA POR OPERADOR" selected="true" align="center">
+                <?php 
+                   echo $this->form;
+                ?>
+                <table width="90%" border="0">
+                <tr>
+                <td>	
+                <br>
+	                <fieldset id="el11">
+					  <legend style="color:blue;">Operador</legend>
+						<table border="0" cellspacing="0" width="100%">
+							<tr>
+						   <td width="18%"><label class="estilotxtop"> Elija el Operador : </label></td>
+						   <td >
+						   	<select 	id				="voperadores"  
+			                 			name			="voperadores"  
+			                 			value			=""
+			                 			store		    ="voperadores" 
+			                 			style			="width:400px;float:left;" 
+			                 			dojoType		="dijit.form.FilteringSelect" 
+			                 			autoComplete	="true"  
+			                 			required     	="true"
+			                 			searchAttr	    ="nombreape" 
+			                 			invalidMessage	="Elija un Operador"
+			                 			onChange        =habilitarCajas();>
+			                 </select>
+						   </td>		                 				   		   
+						   </tr>
+						</table>
+	               </fieldset>
+	               &nbsp;
+				   <fieldset id="el11">
+					  <legend style="color:blue;">Datos de Producci&oacute;n</legend>
+						<table border="0" cellspacing="0" width="100%">
+							<tr>
+						   <td width="18%"><label class="estilotxtop"> Fecha de Producci&oacute;n : </label></td>
+						   <td width="18%">
+								   	<input 
+						                 id				="fechaproduc"
+						                 name			="fechaproduc" 
+						                 type			="text" 
+						                 value			="" 
+						                 style			="width:150px;font:12px;" 
+						                 dojotype		="dijit.form.DateTextBox" 
+						                 maxlength      ="10"
+						                 constraints    ="{formatLenght:'short',datePattern:'dd-MM-yyyy'}"
+						                 disabled       ="disabled"
+						                 onblur         ="verificarDuplicado()"/>
+						   </td>
+						   <td width="5%" valign="middle">
+						   		<div id="idEspera" style="display: none;" align="left">
+			                 		<img  src="<?php echo $this->baseUrl();?>/imagenes/blue-loading.gif" height="16px" width="16px"/>
+			                 	</div>
+			                 	<div id="idOk" style="display: none;" align="left">
+			                 		<img  src="<?php echo $this->baseUrl();?>/imagenes/accept.png" height="16px" width="16px"/>
+			                 	</div>
+			                 	<div id="idX" style="display: none;" align="left">
+			                 		<img  src="<?php echo $this->baseUrl();?>/imagenes/error.png" height="16px" width="16px"/>
+			                 	</div>
+						   </td>
+						   <td><label class="estilotxtop">Lugar de Emisi&oacute;n :</label></td>
+						   <td>
+						   		<select 	id				="lugarem"  
+				                 			name			="lugarem"  
+				                 			value			=""
+				                 			style			="width:150px;font:12px;float: left;" 
+				                 			dojoType		="dijit.form.FilteringSelect" 
+				                 			autoComplete	="true"  
+				                 			disabled        ="disabled"
+				                 			invalidMessage	="Elija la ciudad donde Opera">
+				                 			<option value="0"></option>
+				                 			<option value="Brigada">Brigada</option>
+				                 			<option value="El Guabo">El Guabo</option>
+						     				<option value="Huaquillas">Huaquillas</option>
+						     				<option value="Machala">Machala</option>
+						     				<option value="Pasaje">Pasaje</option>
+						     				<option value="Pinas">Pi&ntilde;as</option>
+						     				<option value="Santa Rosa">Santa Rosa</option>
+				                 </select>
+						   </td>
+						   </tr>
+						   <tr>
+						   <td ><label class="estilotxtop"> Total Renovaciones : </label></td>
+						   <td colspan="2"><input 
+						                 		id				="totrenova"
+						                 		name			="totrenova" 
+						                 		type			="text"
+						                 		value			=""
+						                 		maxlength     	="3"
+						                 		uppercase		="true"
+						                 		style			="width:150px;font:12px;" 
+						                 		dojotype		="dijit.form.ValidationTextBox" 
+						                 		invalidmessage	="Ingrese el total de renovaciones"
+						                 		disabled        ="disabled"/>
+						   </td>
+						   <td colspan="2"><label class="estilotxtop">Observaci&oacute;n :</label></td>
+						   </tr>
+						   <tr>
+						   <td ><label class="estilotxtop"> Total Primera Vez : </label></td>
+						   <td colspan="2"><input 
+						                 		id				="totpvez"
+						                 		name			="totpvez" 
+						                 		type			="text"
+						                 		value			=""
+						                 		maxlength     	="3"
+						                 		uppercase		="true"
+						                 		style			="width:150px;font:12px;" 
+						                 		dojotype		="dijit.form.ValidationTextBox" 
+						                 		invalidmessage	="Ingrese el total de primeras veces"
+						                 		disabled        ="disabled"/>
+						   </td>
+						   <td rowspan="3" colspan="2">
+						   <input 
+				                 id				="observacion"
+				                 name			="observacion" 
+				                 type			="text"
+				                 maxlength     	="300"  
+				                 value			="" 
+				                 uppercase      ="true"
+				                 rows           ="3"
+				                 style			="width:410px;font:12px;" 
+				                 dojotype		="dijit.form.SimpleTextarea"
+				                 disabled        ="disabled"/>
+						   </td>		                 				   		   
+						   </tr>
+						   
+						   <tr>
+						   <td ><label class="estilotxtop"> Total Enmiendas: </label></td>
+						   <td colspan="2"><input 
+						                 		id				="totenmiendas"
+						                 		name			="totenmiendas" 
+						                 		type			="text"
+						                 		value			=""
+						                 		maxlength     	="3"
+						                 		uppercase		="true"
+						                 		style			="width:150px;font:12px;" 
+						                 		dojotype		="dijit.form.ValidationTextBox" 
+						                 		invalidmessage	="Ingrese el total de enmiendas"
+						                 		onblur         ="mostrartotal(this.value,'enm')"
+						                 		disabled        ="disabled"/>
+						   </td>		                 				   		   
+						   </tr>
+						   <tr>
+						   <td ><label class="estilotxtop"> Total Rechazos: </label></td>
+						   <td colspan="2"><input 
+						                 		id				="totrechazos"
+						                 		name			="totrechazos" 
+						                 		type			="text"
+						                 		value			=""
+						                 		maxlength     	="3"
+						                 		uppercase		="true"
+						                 		style			="width:150px;font:12px;" 
+						                 		dojotype		="dijit.form.ValidationTextBox" 
+						                 		invalidmessage	="Ingrese el total de enmiendas"
+						                 		onblur         ="mostrartotal(this.value,'rec')"
+						                 		disabled        ="disabled"/>
+						   </td>		                 				   		   
+						   </tr>
+						</table>
+	               </fieldset>
+	               &nbsp;
+				   <fieldset id="el11">
+					  <legend style="color:blue;">Detalle de Errores</legend>
+						<table border="0" cellspacing="0" width="100%">
+						<tr height="25" style="height:25pt;">
+						   <td width="18%"><label class="estilotxtop"> Tipo de Error : </label></td>
+						   <td width="30%">
+								   <select 	id				="terror"  
+				                 			name			="terror"  
+				                 			value			=""
+				                 			style			="width:210px;font:12px;float: left;" 
+				                 			dojoType		="dijit.form.FilteringSelect" 
+				                 			autoComplete	="true"  
+				                 			store		    ="terror"
+				                 			searchAttr	    ="te_tipo"
+				                 			disabled        ="disabled"
+				                 			invalidMessage	="Elija el tipo de error">
+				                 </select>
+				                 <button id="btnaddterror" class="estilobtn" 
+			                            dojoType="dijit.form.Button" 
+			                            onclick="dijit.byId('newtError').show();" title="Nuevo Tipo de Error" disabled        ="disabled">+</button>
+						   </td>
+						   <td rowspan="4">
+						   		<table id="grilla" jsId="grilla" dojotype="dojox.grid.DataGrid" store="jsonStore" style="font-family:'Trebuchet MS', Helvetica, sans-serif;font-size:12px;border: 1px solid #9AC4D8;width: 410px;height: 100px;font-weight: bold;" >
+					            <thead>
+					              <tr>
+					                <th width="50px" formatter="checkFormatter1">Nro</th>
+					                <th field="te_id" width="5%" hidden="true">Id</th>
+					                <th field="tipo" width="200px">Tipo</th>
+					                <th field="cantidad" width="100px">Cantidad</th>
+					                <th field="codope" width="20px" hidden="true">Cod Op</th>
+					              </tr>
+					            </thead>
+					        	</table>
+					        	<div id="msjtotenm" align="left" style="font-family:'Trebuchet MS', Helvetica, sans-serif;font-size:11px;font: bold; color: #004064;display: block;"><span id="tote">Numero de errores a ingresar:</span></div>
+						   </td>
+						   </tr>
+						   
+						   <tr>
+						   <td ><label class="estilotxtop"> Cantidad : </label></td>
+						   <td ><input 
+						                 		id				="cantidad"
+						                 		name			="cantidad" 
+						                 		type			="text"
+						                 		value			=""
+						                 		maxlength     	="3"
+						                 		uppercase		="true"
+						                 		style			="width:50px;font:12px;" 
+						                 		dojotype		="dijit.form.ValidationTextBox" 
+						                 		invalidmessage	="Ingrese el total de renovaciones"
+						                 		disabled        ="disabled"/>
+						        <input 
+						                 		id				="mycheck" 
+						                 		name			="mycheck" 
+						                 		dojoType		="dijit.form.CheckBox" 
+						                 		value			="agreed"
+												onChange		="mostraropenmienda(arguments[0])"
+												disabled        ="disabled">
+												<label style="font-family:'Trebuchet MS', Helvetica, sans-serif;font-size:11px;font: bold; color: #108064;">Enmineda de otro operador</label>
+						   </td>
+						   </tr>
+						   <tr>
+						   <td>
+						   <div id="lblopenm" style="display: none;"><label class="estilotxtop"> Seleccione el Operador: </label></div>
+						   </td>
+						   <td>
+						   <div id="txtopenm" style="display: none;">
+						   	<select 	id				="voperadoresenm"  
+			                 			name			="voperadoresenm"  
+			                 			value			=""
+			                 			store		    ="voperadores" 
+			                 			style			="width:250px;float:left;" 
+			                 			dojoType		="dijit.form.FilteringSelect" 
+			                 			autoComplete	="true"  
+			                 			required     	="true"
+			                 			searchAttr	    ="nombreape" 
+			                 			invalidMessage	="Elija un Operador">
+			                 </select>
+						   </div>
+						   </td>
+						   </tr>
+						   <tr>
+						   <td><div align="center">
+						   </div>
+						   </td>
+						   <td ><div align="center">
+						   <button id="btnaddge" class="estilotxtop" dojoType="dijit.form.Button" onclick="addError();" disabled="disabled">A&ntilde;adir</button>
+						   <button id="btndelge" class="estilotxtop" dojoType="dijit.form.Button" onclick="deleteError();" disabled="disabled">Eliminar</button>
+						   </div>
+						   </td>
+						   </tr>
+						</table>
+	               </fieldset>
+	               &nbsp;
+				  <table border="0" cellspacing="0" cellpadding="0" width="100%">
+				   <tr>
+						<td><div align="center">
+						<button class="estilotxtop" dojoType="dijit.form.Button" onclick="guardarProduccion();"><img src="<?php echo $this->baseUrl();?>/imagenes/save.png" height="20px" width="20px"/>
+						Guardar Produccion
+						</button>
+						</div>
+						</td>
+						<td><div align="left">
+							<button class="estilotxtop" dojoType="dijit.form.Button" onclick="cancelarProduccioning();"><img src="<?php echo $this->baseUrl();?>/imagenes/cancel.png" height="20px" width="20px"/> Cancelar</button>
+						</div>
+						</td>
+					</tr>
+				   </table>
+               </td>
+               </tr>
+               </table>
+               
+               <!-- DIALOGO INGRESAR OTRO TIPO DE ERROR  -->
+               <div id="newtError" dojoType="dijit.Dialog" title="Nuevo Tipo de Error">
+                <div dojoType="dijit.layout.ContentPane" title="foo">
+	                    <table width="100%" border="0">
+			                <tr>
+			                <td>	
+				                <fieldset id="el11">
+								  <legend style="color:blue;">	Datos del Error</legend>
+									<table border="0" cellspacing="5" width="100%">
+									   <tr>
+									   <td ><label class="estilotxtop"> Tipo de Error : </label></td>
+									   <td ><input 
+									                 		id				="tipoerror"
+									                 		name			="tipoerror" 
+									                 		type			="text"
+									                 		value			=""
+									                 		maxlength     	="100"
+									                 		uppercase		="true"
+									                 		style			="width:300px;" 
+									                 		dojotype		="dijit.form.ValidationTextBox" 
+									                 		invalidmessage	="Ingrese el Nombre del Error"/>
+									   </td>		                 				   		   
+									   </tr>
+									   
+									   <tr>
+									   <td ><label class="estilotxtop"> Descripcion : </label></td>
+									   <td ><input 
+							                 id				="descripcion"
+							                 name			="descripcion" 
+							                 type			="text"
+							                 maxlength     	="200"  
+							                 value			="" 
+							                 uppercase      ="true"
+							                 rows           ="4"
+							                 style			="width:300px;font:12px;" 
+							                 dojotype		="dijit.form.SimpleTextarea"/>
+									   </td>		                 				   		   
+									   </tr>
+									</table>
+				               </fieldset>
+							  <table border="0" cellspacing="0" cellpadding="0" width="90%">
+							   <tr>
+									<td><div align="center">
+									<button class="estilotxtop" dojoType="dijit.form.Button" onclick="guardarError();"><img src="<?php echo $this->baseUrl();?>/imagenes/save.png" height="20px" width="20px"/>
+									Guardar
+									</button>
+									</div>
+									</td>
+									<td><div align="center">
+										<button class="estilotxtop" dojoType="dijit.form.Button" onclick="cancelardlgingerror();"><img src="<?php echo $this->baseUrl();?>/imagenes/cancel.png" height="24px" width="24px"/>Cancelar</button>
+									</div>
+									</td>
+								</tr>
+							   </table>
+			               </td>
+			               </tr>
+	               </table>
+                </div>
+            </div>
+        </div>            
+     </div>                                

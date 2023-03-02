@@ -1,0 +1,99 @@
+<div dojoType="dojo.data.ItemFileReadStore" jsId="voperadores" url="<?php echo $this->voperadores;?>"></div>
+        <div dojoType="dijit.layout.AccordionContainer">          
+            <div dojoType="dijit.layout.ContentPane" title="INGRESAR DATOS: SOLICITUD DE PERMISO SALIDA CORTA" selected="true" align="center">
+                <table width="95%" border="0">
+                <tr>
+                <td>
+	               <div id="mostrarform" style="display: ;" align="center">
+	               <br>
+	               <br>
+	                <fieldset id="el11">
+					  <legend style="color:blue;">	Informaci&oacute;n requerida</legend>
+						<table border="0" cellspacing="2" width="100%">
+						   <tr>
+						   <td ><label class="estilotxtop"> Fecha del Permiso : </label></td>
+						   <td ><input 
+						                 id				="fechapermiso"
+						                 name			="fechapermiso" 
+						                 type			="text" 
+						                 value			="<?php date_default_timezone_set('America/Guayaquil'); echo date("Y-m-d");?>" 
+						                 style			="width:150px;font:12px;" 
+						                 dojotype		="dijit.form.DateTextBox" 
+						                 maxlength      ="10"
+						                 constraints    ="{formatLenght:'short',datePattern:'yyyy-MM-dd'}"
+						                 readonly       ='readonly'/>
+						   </td>
+						   </tr>
+							<tr>
+						   <td width="35%"><label class="estilotxtop"> Apellidos y nombres: : </label></td>
+						   <td>
+						   	<select 	id				="voperadores"  
+			                 			name			="voperadores"  
+			                 			value			=""
+			                 			store		    ="voperadores" 
+			                 			style			="width:400px;float:left;" 
+			                 			dojoType		="dijit.form.FilteringSelect" 
+			                 			autoComplete	="true"  
+			                 			required     	="true"
+			                 			searchAttr	    ="nombreape" 
+			                 			invalidMessage	="Elija un Funcionario">
+			                 </select>
+						   </td>
+						   </tr>
+						   
+						   <tr>
+						   <td ><label class="estilotxtop"> Informacion adicional(Observaciones) : </label></td>
+						   <td ><input 
+					                 		promptMessage = "Ingrese informacion relevante."
+					                 		id				="observaciones"
+					                 		name			="observaciones" 
+					                 		type			="text"
+					                 		maxlength     	="255"  
+					                 		value			=""
+					                 		rows            ="6" 
+					                 		uppercase		="true"
+					                 		style			="width:400px;font:12px;float: left;" 
+					                 		dojotype		="dijit.form.SimpleTextarea"/>
+						   </td>		                 				   		   
+						   </tr>
+						   <tr>
+						   <td ><label class="estilotxtop"> Hora de Salida : </label></td>
+						   <td ><input 
+						                 id				="horasalida"
+						                 name			="horasalida" 
+						                 type			="text" 
+						                 value			="<?php echo date("H:i a");?>" 
+						                 dojotype		="dijit.form.ValidationTextBox"
+						                 readonly       ="readonly"/>
+						   </td>
+						   </tr>
+						</table>
+	               </fieldset>
+	               <br>
+				  <table border="0" cellspacing="0" cellpadding="0" width="100%">
+	               <tr>
+						<td colspan="3"></td>
+				   </tr>
+				   <tr>
+						<td width="45%">
+							<div align="right">
+							<button id="btnGuardar" class="estilotxtop" dojoType="dijit.form.Button" onclick="guardardatospermiso();"><img src="<?php echo $this->baseUrl();?>/imagenes/sendmail.png" height="32px" width="32px"/>
+							Abrir Ticket de Permiso
+							</button>
+							</div>
+						</td>
+						<td width="10%">
+						</td>
+						<td width="45%">
+							<div align="left">
+								<button class="estilotxtop" dojoType="dijit.form.Button" onclick="cancelingpermiso();"><img src="<?php echo $this->baseUrl();?>/imagenes/cancel.png" height="32px" width="32px"/> Cancelar</button>
+							</div>
+						</td>
+					</tr>
+				   </table>
+				   </div>
+               </td>
+               </tr>
+               </table>
+            </div>            
+       </div>                                

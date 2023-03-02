@@ -1,0 +1,154 @@
+        <div dojoType="dijit.layout.AccordionContainer">          
+            <div dojoType="dijit.layout.ContentPane" title="REPORTE DE PRODUCCION AGENCIA MACHALA" selected="true" align="center">
+                <?php 
+                   echo $this->form;
+                ?>
+                <table width="90%" border="0">
+                <tr>
+                <td>	
+                <br>	
+	                <fieldset id="el11">
+					  <legend style="color:blue;">	Elija el tipo de reporte que desea generar.</legend>
+						<table border="0" cellspacing="5" width="100%">
+						   <tr>
+						   <td><label class="estilotxtop"> Elija el tipo : </label></td>
+						   <td> <select 	id				="tipor"  
+				                 			name			="tipor"  
+				                 			value			="" 
+				                 			style			="width:120px;font:12;float: left;"
+				                 			dojoType		="dijit.form.FilteringSelect" 
+				                 			autoComplete	="true" 
+				                 			required		="true" 
+				                 			regExp			="[\w]+" 
+				                 			invalidMessage	="Elija el tipo de reporte"
+				                 			onchange        ="mostrartipob(this.value)">
+							                 <option value="0" label=""></option>
+					    					 <option value="d" label="">Diario</option>
+					   						 <option value="s" label="">Semanal</option>
+					   						 <option value="m" label="">Mensual</option>
+							                 </select>
+						   </td>
+						   <td  width="20%"></td>
+						   <td  width="20%"></td>
+						   <td  width="20%"></td>		                 				   		   
+						   </tr>
+							   <tr>
+							   <td width="20%"><div id="lblIngFechaDesde" style="display: none;"><label class="estilotxtop"> * Fecha Desde: </label></div>
+							                   <div id="lblIngFechaDesded" style="display: none;"><label class="estilotxtop"> * Elija el dia: </label></div>
+							   </td>
+							   <td width="20%"><div id="txtIngFechaDesde" style="display: none;">
+							   		<input 
+						                 		id				="fechadesde"
+						                 		name			="fechadesde" 
+						                 		type			="text" 
+						                 		value			="" 
+						                 		style			="width:100px;font:12px;float: left;" 
+						                 		dojotype		="dijit.form.DateTextBox" 
+						                 		maxlength        ="10"
+						                 		constraints     ="{formatLenght:'short',datePattern:'dd-MM-yyyy'}"/>
+							        </div>
+							   </td>
+							   <td  width="20%"></td>
+							   <td  width="20%"><div id="lblIngFechaHasta" style="display: none;"><label class="estilotxtop"> * Fecha Hasta: </label></div></td>
+							   <td  width="20%"><div id="txtIngFechaHasta" style="display: none;">
+							   		<input 
+						                 		id				="fechahasta"
+						                 		name			="fechahasta" 
+						                 		type			="text" 
+						                 		value			="" 
+						                 		style			="width:100px;font:12px;float: left;" 
+						                 		dojotype		="dijit.form.DateTextBox" 
+						                 		maxlength        ="10"
+						                 		constraints     ="{formatLenght:'short',datePattern:'dd-MM-yyyy'}"/></div>
+						      </td>
+						   </tr>
+							<tr>
+						   <td ><div id="lblmes" style="display: none;"><label class="estilotxtop"> * Elija el mes : </label></div></td>
+						   <td ><div id="txtmes" style="display: none;">
+						   		<select 	id				="mes"  
+				                 			name			="mes"  
+				                 			value			="" 
+				                 			style			="width:120px;font:12;float: left;"
+				                 			dojoType		="dijit.form.FilteringSelect" 
+				                 			autoComplete	="true" 
+				                 			required		="true" 
+				                 			regExp			="[\w]+" 
+				                 			invalidMessage	="Elija el mes">
+							                 <option value="0" label=""></option>
+					    					 <option value="1" label="">Enero</option>
+					   						 <option value="2" label="">Febrero</option>
+					   						 <option value="3" label="">Marzo</option>
+					   						 <option value="4" label="">Abril</option>
+					   						 <option value="5" label="">Mayo</option>
+					   						 <option value="6" label="">Junio</option>
+					   						 <option value="7" label="">Julio</option>
+					   						 <option value="8" label="">Agosto</option>
+					   						 <option value="9" label="">Septiembre</option>
+					   						 <option value="10" label="">Octubre</option>
+					   						 <option value="11" label="">Noviembre</option>
+					   						 <option value="12" label="">Diciembre</option>
+							                 </select></div>
+						     </td>
+						     <td  width="20%"></td>
+						     <td  width="20%"></td>
+						     <td  width="20%"></td>		                 				   		   
+						   </tr>
+						   <tr>
+						   <td ><div id="lblanio" style="display: none;"><label class="estilotxtop"> * Elija el a&ntilde;o  : </label></div></td>
+						   <td ><div id="txtanio" style="display: none;">
+						   		<select 	id				="anio"  
+				                 			name			="anio"  
+				                 			value			="" 
+				                 			style			="width:120px;font:12px;float: left;"
+				                 			dojoType		="dijit.form.FilteringSelect" 
+				                 			autoComplete	="true" 
+				                 			required		="true" 
+				                 			regExp			="[\w]+" 
+				                 			invalidMessage	="Elija el a&ntilde;o">
+							                 <option value="0" label=""></option>
+					   						 <option value="2011" label="">2011</option>
+					   						 <option value="2012" label="">2012</option>
+					   						 <option value="2013" label="">2013</option>
+					   						 <option value="2014" label="">2014</option>
+					   						 <option value="2015" label="">2015</option>
+					   						 <option value="2016" label="">2016</option>
+					   						 <option value="2017" label="">2017</option>
+					   						 <option value="2018" label="">2018</option>
+					   						 <option value="2019" label="">2019</option>
+					   						 <option value="2020" label="">2020</option>
+					   						 <option value="2021" label="">2021</option>
+							                 </select></div>
+						   </td>	
+						   <td  width="20%"></td>
+						   <td  width="20%"></td>
+						   <td  width="20%"></td>	                 				   		   
+						   </tr>
+						</table>
+	               </fieldset>
+	               <br>
+				  
+				  <table border="0" cellspacing="0" cellpadding="0" width="100%">
+	               <tr>
+						<td colspan="2"></td>
+				   </tr>
+				   <tr>
+						<td><div align="center">
+						<button class="estilotxtop" dojoType="dijit.form.Button" onclick="verRptmenmach();"><img src="<?php echo $this->baseUrl();?>/imagenes/save.png" height="20px" width="20px"/>
+						Ver Reporte
+						</button>
+						</div>
+						</td>
+						<td><div align="left">
+							<button class="estilotxtop" dojoType="dijit.form.Button" onclick="cancelarrptmenmach();"><img src="<?php echo $this->baseUrl();?>/imagenes/cancel.png" height="24px" width="24px"/> Cancelar</button>
+						</div>
+						</td>
+					</tr>
+					<tr>
+						<td colspan="2">&nbsp;</td>
+				   </tr>
+				   </table>
+               </td>
+               </tr>
+               </table>
+            </div>            
+       </div>                                

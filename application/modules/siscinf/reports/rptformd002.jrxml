@@ -1,0 +1,376 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="rptformd001" language="groovy" pageWidth="595" pageHeight="842" whenNoDataType="AllSectionsNoDetail" columnWidth="585" leftMargin="5" rightMargin="5" topMargin="5" bottomMargin="5">
+	<property name="ireport.zoom" value="2.657341500000001"/>
+	<property name="ireport.x" value="596"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="DIRECCION_LOGO" class="java.lang.String"/>
+	<parameter name="LUGFEC" class="java.lang.String"/>
+	<parameter name="CEDULARP" class="java.lang.String"/>
+	<parameter name="APENOM" class="java.lang.String"/>
+	<parameter name="NUM" class="java.lang.String"/>
+	<parameter name="CEDULA" class="java.lang.String"/>
+	<parameter name="APENOMRP" class="java.lang.String"/>
+	<parameter name="V1" class="java.lang.String"/>
+	<parameter name="V2" class="java.lang.String"/>
+	<parameter name="V3" class="java.lang.String"/>
+	<parameter name="V4" class="java.lang.String"/>
+	<parameter name="V5" class="java.lang.String"/>
+	<parameter name="V6" class="java.lang.String"/>
+	<title>
+		<band height="825" splitType="Stretch">
+			<rectangle>
+				<reportElement x="14" y="312" width="571" height="76" forecolor="#FFFFFF" backcolor="#D8CEDF"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="445" y="9" width="116" height="20"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="14" y="458" width="571" height="151" forecolor="#FFFFFF" backcolor="#EBF7FA"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="14" y="388" width="571" height="70" forecolor="#FFFFFF" backcolor="#F3F8EA"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="22" y="554" width="550" height="28"/>
+				<textElement textAlignment="Justified">
+					<font size="11" isBold="false"/>
+				</textElement>
+				<text><![CDATA[DECIDO Mantener la condicion de donante de organos y tejidos, de mi representado/a para que al momento de su fallecimiento puedan ser utilizados unicamente:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="13" y="47" width="571" height="36"/>
+				<textElement textAlignment="Justified">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[FORMULARIO D-0002 PARA REGISTRO DE VOLUNTAD DE DONACION DE ORGANOS Y TEJIDOS PARA PERSONAS MAYORES DE EDAD CONCIDERADAS LEGALMENTE INCAPACES ABSOLUTOS]]></text>
+			</staticText>
+			<line>
+				<reportElement x="14" y="78" width="571" height="2" forecolor="#0099CC"/>
+				<graphicElement>
+					<pen lineWidth="2.0"/>
+				</graphicElement>
+			</line>
+			<staticText>
+				<reportElement x="24" y="83" width="87" height="13"/>
+				<textElement textAlignment="Center">
+					<font size="9" isBold="true" isItalic="true" isUnderline="false"/>
+				</textElement>
+				<text><![CDATA[* Datos Obligatorios]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="24" y="98" width="456" height="17"/>
+				<textElement>
+					<font size="12" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Ciudad y Fecha:___________________________________________________*]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="24" y="115" width="548" height="17"/>
+				<textElement>
+					<font size="12" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Yo:_____________________________________________________________________________*]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="24" y="133" width="548" height="19"/>
+				<textElement textAlignment="Justified">
+					<font size="12" isBold="false"/>
+				</textElement>
+				<text><![CDATA[mayor de edad, con cedula de ciudadania/identidad  numero________________________________,*]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="24" y="185" width="548" height="120"/>
+				<textElement textAlignment="Justified">
+					<font size="12" isBold="false"/>
+				</textElement>
+				<text><![CDATA[a traves de la presente autorizo a la Direccion General de Registro Civil, Identificacion y Cedulacion a registrar sobre mi representado/a la voluntad de mantener su condicion de donante de organos para que al momento de su fallecimiento puedan ser utilizados dichos componentes anatomicos en seres humanos vivos o con fines de estudio e investigacion          o;
+En conocimiento de lo establecido en la Constitucion de la Republica del Ecuador y la Ley Organica
+de Donacion y Trasplantes de Organos, Tejidos y Cedulas en sus articulos 29,30 y 31;libre, voluntaria y expresamente manifiesto lo siguiente:]]></text>
+			</staticText>
+			<line>
+				<reportElement x="14" y="310" width="571" height="2" forecolor="#0099CC"/>
+				<graphicElement>
+					<pen lineWidth="2.0"/>
+				</graphicElement>
+			</line>
+			<staticText>
+				<reportElement x="22" y="314" width="130" height="16"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[DONACION PARCIAL]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="24" y="329" width="548" height="34"/>
+				<textElement textAlignment="Justified">
+					<font size="12" isBold="false"/>
+				</textElement>
+				<text><![CDATA[DECIDO mantener la condicion de donante de organos y/o tejidos de mi representado/a para que, al momento de su fallecimiento puedan ser utilizados unicamente:]]></text>
+			</staticText>
+			<rectangle>
+				<reportElement x="139" y="361" width="20" height="20"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="326" y="361" width="20" height="20"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="166" y="362" width="54" height="17"/>
+				<textElement>
+					<font size="12" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Organos]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="355" y="363" width="54" height="17"/>
+				<textElement>
+					<font size="12" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Tejidos]]></text>
+			</staticText>
+			<line>
+				<reportElement x="14" y="387" width="571" height="2" forecolor="#0099CC"/>
+				<graphicElement>
+					<pen lineWidth="2.0"/>
+				</graphicElement>
+			</line>
+			<staticText>
+				<reportElement x="20" y="392" width="169" height="16"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[NEGATIVA A LA DONACION]]></text>
+			</staticText>
+			<rectangle>
+				<reportElement x="21" y="411" width="20" height="20"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="45" y="407" width="527" height="50"/>
+				<textElement textAlignment="Justified">
+					<font size="12" isBold="false"/>
+				</textElement>
+				<text><![CDATA[NO ACEPTO mantener mi condicion de donante de organos y/o tejidos de mi representado/a para que, al momento de su fallecimiento ninguno de sus organos y/o tejidos sean utilizados en procesos de trasplantes en seres humanos vivos o con fines de  estudio o investigacion;]]></text>
+			</staticText>
+			<line>
+				<reportElement x="14" y="457" width="571" height="2" forecolor="#0099CC"/>
+				<graphicElement>
+					<pen lineWidth="2.0"/>
+				</graphicElement>
+			</line>
+			<staticText>
+				<reportElement x="20" y="459" width="210" height="16"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[REVOCATORIA DE LA VOLUNTAD]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="24" y="477" width="548" height="34"/>
+				<textElement textAlignment="Justified">
+					<font size="12" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Libre y voluntariamente revoco ultima desicion con respecto a la donacion de organos y tejidos de mi representante al momento de su fallecimiento; por lo tanto, es mi deseo y voluntad:]]></text>
+			</staticText>
+			<rectangle>
+				<reportElement x="26" y="512" width="20" height="20"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="51" y="511" width="521" height="46"/>
+				<textElement textAlignment="Justified">
+					<font size="11" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Mantener la condicion de DONATE de organos y tejidos, de mi representado/a para que el momento de su fallecimiento puedan ser utilizados dichos componentes anatomicos en seres humanos vivos o con fines de estudio o investigacion.]]></text>
+			</staticText>
+			<rectangle>
+				<reportElement x="327" y="585" width="20" height="20"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="139" y="585" width="20" height="20"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="166" y="586" width="54" height="17"/>
+				<textElement>
+					<font size="12" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Organos]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="358" y="586" width="54" height="17"/>
+				<textElement>
+					<font size="12" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Tejidos]]></text>
+			</staticText>
+			<line>
+				<reportElement x="14" y="609" width="571" height="2" forecolor="#0099CC"/>
+				<graphicElement>
+					<pen lineWidth="2.0"/>
+				</graphicElement>
+			</line>
+			<staticText>
+				<reportElement x="20" y="610" width="552" height="29"/>
+				<textElement>
+					<font size="11" isBold="false" isItalic="true" isUnderline="false"/>
+				</textElement>
+				<text><![CDATA[Mi el presente documento solicito a la Direccion General del Registro Civil, Identificacion y Cedulacion, haga constar MI VOLUNTAD con respecto a la donacion de organos y/o tejidos en la base de datos de la institucion.]]></text>
+			</staticText>
+			<rectangle radius="5">
+				<reportElement x="55" y="642" width="240" height="81"/>
+			</rectangle>
+			<rectangle radius="5">
+				<reportElement x="305" y="642" width="240" height="81"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="82" y="687" width="196" height="17"/>
+				<textElement>
+					<font size="11" isBold="false" isItalic="true" isUnderline="false"/>
+				</textElement>
+				<text><![CDATA[- - - - - - - - - - - - - - - - - - - - - - - - - - ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="331" y="687" width="196" height="17"/>
+				<textElement>
+					<font size="11" isBold="false" isItalic="true" isUnderline="false"/>
+				</textElement>
+				<text><![CDATA[- - - - - - - - - - - - - - - - - - - - - - - - - - ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="61" y="699" width="234" height="17"/>
+				<textElement>
+					<font size="10" isBold="true" isItalic="true" isUnderline="false"/>
+				</textElement>
+				<text><![CDATA[*   FIRMA USUARIO/ REPRESENTANTE LEGAL]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="346" y="695" width="163" height="29"/>
+				<textElement>
+					<font size="10" isBold="true" isItalic="true" isUnderline="false"/>
+				</textElement>
+				<text><![CDATA[*   NOMBRE, FIRMA Y SELLO DELEGADO DE REGISTRO CIVIL.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="20" y="724" width="552" height="40"/>
+				<textElement textAlignment="Justified">
+					<font size="10" isBold="false" isItalic="true" isUnderline="false" isStrikeThrough="false"/>
+				</textElement>
+				<text><![CDATA[Nota Importante: al manifestar su voluntad conjuntamente con la obtencion de la cedula de ciudadania o identidad el rechazo de este documento impedira su ingreso en el Registro Nacional de No Donantes, por lo que ambos tramites deberan efectuarse nuevamente.]]></text>
+			</staticText>
+			<line>
+				<reportElement x="14" y="764" width="571" height="2" forecolor="#0099CC"/>
+				<graphicElement>
+					<pen lineWidth="2.0"/>
+				</graphicElement>
+			</line>
+			<image scaleImage="FillFrame">
+				<reportElement x="45" y="767" width="509" height="56"/>
+				<imageExpression class="java.lang.String"><![CDATA[$P{DIRECCION_LOGO}]]></imageExpression>
+			</image>
+			<textField>
+				<reportElement x="451" y="10" width="118" height="18"/>
+				<textElement markup="none">
+					<font size="13" isBold="true"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA["FMI "+$P{NUM}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="118" y="97" width="280" height="19"/>
+				<textElement markup="none">
+					<font size="12" isBold="true" isUnderline="false"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$P{LUGFEC}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="49" y="113" width="493" height="19"/>
+				<textElement verticalAlignment="Middle" markup="none">
+					<font size="12" isBold="true" isUnderline="false"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$P{APENOMRP}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="20" y="1" width="412" height="49"/>
+				<textElement textAlignment="Center">
+					<font size="11" isBold="false"/>
+				</textElement>
+				<text><![CDATA[DIRECCION GENERAL DE REGISTRO CIVIL, IDENTIFICACION Y CEDULACION
+MINISTERIO DE SALUD PUBLICA
+ORGANISMO NACIONAL DE TRANSPLATES DE ORGANOS Y TEJIDOS ONTOT]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="357" y="132" width="181" height="19"/>
+				<textElement markup="none">
+					<font size="12" isBold="true" isUnderline="false"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$P{CEDULARP}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="24" y="149" width="548" height="19"/>
+				<textElement textAlignment="Justified">
+					<font size="12" isBold="false"/>
+				</textElement>
+				<text><![CDATA[en calidad de representante legal de________________________________________mayor de edad,*]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="24" y="166" width="548" height="19"/>
+				<textElement textAlignment="Justified">
+					<font size="12" isBold="false"/>
+				</textElement>
+				<text><![CDATA[con cedula de ciudadania/identidad numero ________________________________.*]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="262" y="165" width="203" height="19"/>
+				<textElement markup="none">
+					<font size="12" isBold="true" isUnderline="false"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$P{CEDULA}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="228" y="147" width="252" height="19"/>
+				<textElement verticalAlignment="Middle" markup="none">
+					<font size="11" isBold="true" isUnderline="false"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$P{APENOM}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="139" y="361" width="20" height="19"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle" markup="none">
+					<font size="15" isBold="true" isUnderline="false"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$P{V1}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="326" y="360" width="20" height="19"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle" markup="none">
+					<font size="15" isBold="true" isUnderline="false"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$P{V2}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="21" y="411" width="20" height="19"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle" markup="none">
+					<font size="15" isBold="true" isUnderline="false"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$P{V3}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="26" y="512" width="20" height="19"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle" markup="none">
+					<font size="15" isBold="true" isUnderline="false"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$P{V4}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="139" y="585" width="20" height="19"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle" markup="none">
+					<font size="15" isBold="true" isUnderline="false"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$P{V5}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="327" y="585" width="20" height="19"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle" markup="none">
+					<font size="15" isBold="true" isUnderline="false"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$P{V6}]]></textFieldExpression>
+			</textField>
+		</band>
+	</title>
+</jasperReport>

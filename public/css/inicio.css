@@ -1,0 +1,28 @@
+body { 
+background:#ffffff; 
+font-family:'Trebuchet MS', Helvetica, sans-serif; 
+font-size:14px; 
+line-height:15px; 
+color:#4d4d4d }
+	
+.login { 
+	background-color:#FFFFFF; 
+	background-image:url(../imagenes/fondo_login.png); 
+	background-position:top; 
+	background-repeat:no-repeat;
+	left:50%; 
+	top:60%;
+	position:absolute; 
+	height:170px;
+	width:630px;
+	margin:-285px 0 0 -326px; 
+	padding:158px 16px 80px;
+}
+
+#content { 
+	position:absolute; 
+	height:130px;
+	width:320px;
+	top:40%;
+    left:10%;
+}

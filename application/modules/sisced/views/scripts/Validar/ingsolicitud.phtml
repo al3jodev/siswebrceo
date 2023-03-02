@@ -1,0 +1,618 @@
+        <div dojoType="dijit.layout.AccordionContainer">          
+            <div dojoType="dijit.layout.ContentPane" title="INGRESAR DATOS: SOLICITAR COPIAS INTEGRAS" selected="true" align="center">
+                <br>
+                <table width="95%" border="0">
+                <tr>
+                <td width="50%" colspan="2">	
+	                <fieldset id="el11">
+					  <legend style="color:blue;">Tipo de Cedulacion</legend>
+						<table border="0" cellspacing="0" width="100%">
+							<tr>
+						   <td ><input dojoType="dijit.form.RadioButton" type="radio" name="g1" id="pvez" value="Primera vez" onclick="habilitarCajasval()"><label class="estilotxtop"> PRIMERA VEZ </label></td>
+						   </tr>
+						   <tr>
+						   <td ><input dojoType="dijit.form.RadioButton" type="radio" name="g1" id="renova" value="Renovacion" onclick="habilitarCajasval1()"><label class="estilotxtop"> RENOVACION </label></td>
+						   </tr>
+						</table>
+	               </fieldset>
+               </td>
+               <td width="50%" colspan="2">
+               		<fieldset id="el11">
+					  <legend style="color:blue;">Copias integras a solicitar :</legend>
+						<table border="0" cellspacing="0" width="100%">
+							<tr>
+						   <td ><input id="piusuario" name="piusuario" dojoType="dijit.form.CheckBox" value="USUARIO" onchange="habilitarCajasUsuario(arguments[0])"></td>
+						   <td ><label class="estilotxtop"> USUARIO </label></td>
+						   <td></td>
+						   <td ><input id="pipadre" name="pipadre" dojoType="dijit.form.CheckBox" value="PADRE" onchange="habilitarCajasPadre(arguments[0])"></td>
+						   <td ><label class="estilotxtop"> PADRE </label></td>
+						   <td width="50%"><input id="pimatrimonio" name="pimatrimonio" dojoType="dijit.form.CheckBox" value="MATRIMONIO" onchange="habilitarCajasMatrimonio(arguments[0])"><label class="estilotxtop"> MATRIMONIO </label></td>
+						   </tr>
+						   <tr>
+						   <td ><input id="pimadre" name="pimadre" dojoType="dijit.form.CheckBox" value="MADRE" onchange="habilitarCajasMadre(arguments[0])"></td>
+						   <td ><label class="estilotxtop"> MADRE </label></td>
+						   <td></td>
+						   <td ><input id="piconyuge" name="piconyuge" dojoType="dijit.form.CheckBox" value="CONYUGE" onchange="habilitarCajasConyuge(arguments[0])"></td>
+						   <td ><label class="estilotxtop"> CONYUGE </label></td>
+						   <td width="50%"></td>
+						   </tr>
+						</table>
+	               </fieldset>
+               </td>
+               </tr>
+               
+               <tr>
+               <td colspan="4">
+				   <fieldset id="el11">
+					  <legend style="color:blue;">Datos del SOLICITANTE</legend>
+						<table border="0" cellspacing="0" width="100%">
+							<tr>
+						   <td width="15%"><div  id="lblusu" style="display: block"><label class="estilotxtop"> Cedula Usuario : </label></div></td>
+						   <td width="18%"><div  id="txtusu" style="display: block">
+								   	<input 
+						                 id				="cedusuario"
+						                 name			="cedusuario" 
+						                 type			="text" 
+						                 value			="" 
+						                 style			="width:150px;font:12px;float:left" 
+						                 dojotype		="dijit.form.ValidationTextBox" 
+						                 maxlength      ="13"
+						                 onblur         ="verificarDuplicado(this.cedula)"/>
+						                  </div>
+						                  <div id="idEspera" style="display: none;" align="left">
+			                 		<img  src="<?php echo $this->baseUrl();?>/imagenes/blue-loading.gif" height="16px" width="16px"/>
+			                 	</div>
+			                 	<div id="idOk" style="display: none;" align="left">
+			                 		<img  src="<?php echo $this->baseUrl();?>/imagenes/accept.png" height="16px" width="16px"/>
+			                 	</div>
+			                 	<div id="idX" style="display: none;" align="left">
+			                 		<img  src="<?php echo $this->baseUrl();?>/imagenes/error.png" height="16px" width="16px"/>
+			                 	</div>
+						   </td>
+						   		
+						   <td rowspan="3"><div id="lblusu1" style="display: none"><label class="estilotxtop"> Datos de Inscripcion AS-400 : </label></div> 	
+						   	<div id="cmbusu1" style="display: none">
+						   	<input 
+				                 id				="asusu"
+				                 name			="asusu" 
+				                 type			="text"
+				                 maxlength     	="1000"  
+				                 value			="" 
+				                 uppercase      ="true"
+				                 rows           ="2"
+				                 style			="width:410px;font:14px;" 
+				                 dojotype		="dijit.form.SimpleTextarea"/>
+				                 <div style="font-family:'Trebuchet MS', Helvetica, sans-serif;font-size:11px;font: bold; color: #9AC4D8;">Nota: PEGAR la 2 y 3 linea de la opcion 3 del AS400.</div></div>
+						   </td>
+						   </tr>
+						   
+						   <tr>
+						   <td ><label class="estilotxtop"> Apellidos y Nombres : </label></td>
+						   <td ><input 
+						                 		id				="apenomusu"
+						                 		name			="apenomusu" 
+						                 		type			="text"
+						                 		value			=""
+						                 		maxlength     	="200"
+						                 		uppercase		="true"
+						                 		style			="width:350px;font:12px;" 
+						                 		dojotype		="dijit.form.ValidationTextBox"/>
+						   </td>
+						   </tr>
+						   <tr>
+						   <td ><div id="lblusu2" style="display: none"><label class="estilotxtop"> Provincia inscripcion: </label></div></td>
+						   <td colspan="1"><div id="cmbusu2" style="display: none">
+						   		<select 	id				="provusuario"  
+				                 			name			="provusuario"  
+				                 			value			=""
+				                 			style			="width:150px;font:12px;float: left;" 
+				                 			dojoType		="dijit.form.FilteringSelect" 
+				                 			autoComplete	="true">
+				                 			<option value="0"></option>
+				                 			<option value="AZUAY">AZUAY</option>
+				                 			<option value="BOLIVAR">BOLIVAR</option>
+						     				<option value="CAÑAR">CAÑAR</option>
+						     				<option value="CARCHI">CARCHI</option>
+						     				<option value="CHIMBORAZO">CHIMBORAZO</option>
+						     				<option value="COTOPAXI">COTOPAXI</option>
+						     				<option value="EL ORO">EL ORO</option>
+						     				<option value="ESMERALDAS">ESMERALDAS</option>
+						     				<option value="GALAPAGOS">GALAPAGOS</option>
+				                 			<option value="GUAYAS">GUAYAS</option>
+						     				<option value="IMBABURA">IMBABURA</option>
+						     				<option value="LOJA">LOJA</option>
+						     				<option value="LOS RIOS">LOS RIOS</option>
+						     				<option value="MANABI">MANABI</option>
+						     				<option value="MACAS">MACAS</option>
+				                 			<option value="MORONA SANTIAGO">MORONA SANTIAGO</option>
+						     				<option value="NAPO">NAPO</option>
+						     				<option value="ORELLANA">ORELLANA</option>
+						     				<option value="PASTAZA">PASTAZA</option>
+						     				<option value="PICHINCHA">PICHINCHA</option>
+						     				<option value="SANTA ELENA">SANTA ELENA</option>
+						     				<option value="SANTO DOMINGO DE LOS TSACHILAS">SANTO DOMINGO DE LOS TSACHILAS</option>
+						     				<option value="TUNGURAHUA">TUNGURAHUA</option>
+						     				<option value="ZAMORA CHINCHIPE">ZAMORA CHINCHIPE</option>
+				                 </select>
+				                 <select 	id				="tipociusuario"  
+				                 			name			="tipociusuario"  
+				                 			value			=""
+				                 			style			="width:150px;font:12px;float: left;" 
+				                 			dojoType		="dijit.form.FilteringSelect" 
+				                 			autoComplete	="true">
+				                 			<option value="NACIMIENTO">NACIMIENTO</option>
+				                 </select>
+				                 </div>
+						   </td>
+						   </tr>
+						   <tr>
+						   <td><div id="lblusu3" style="display: none"><label class="estilotxtop"> Provincia Matrimonio: </label></div></td>
+						   <td>
+						   <div id="cmbusu3" style="display: none">
+						   		<select 	id				="provusuariomat"  
+				                 			name			="provusuariomat"  
+				                 			value			=""
+				                 			style			="width:150px;font:12px;float: left;" 
+				                 			dojoType		="dijit.form.FilteringSelect" 
+				                 			autoComplete	="true">
+				                 			<option value="0"></option>
+				                 			<option value="AZUAY">AZUAY</option>
+				                 			<option value="BOLIVAR">BOLIVAR</option>
+						     				<option value="CAÑAR">CAÑAR</option>
+						     				<option value="CARCHI">CARCHI</option>
+						     				<option value="CHIMBORAZO">CHIMBORAZO</option>
+						     				<option value="COTOPAXI">COTOPAXI</option>
+						     				<option value="EL ORO">EL ORO</option>
+						     				<option value="ESMERALDAS">ESMERALDAS</option>
+						     				<option value="GALAPAGOS">GALAPAGOS</option>
+				                 			<option value="GUAYAS">GUAYAS</option>
+						     				<option value="IMBABURA">IMBABURA</option>
+						     				<option value="LOJA">LOJA</option>
+						     				<option value="LOS RIOS">LOS RIOS</option>
+						     				<option value="MANABI">MANABI</option>
+						     				<option value="MACAS">MACAS</option>
+				                 			<option value="MORONA SANTIAGO">MORONA SANTIAGO</option>
+						     				<option value="NAPO">NAPO</option>
+						     				<option value="ORELLANA">ORELLANA</option>
+						     				<option value="PASTAZA">PASTAZA</option>
+						     				<option value="PICHINCHA">PICHINCHA</option>
+						     				<option value="SANTA ELENA">SANTA ELENA</option>
+						     				<option value="SANTO DOMINGO DE LOS TSACHILAS">SANTO DOMINGO DE LOS TSACHILAS</option>
+						     				<option value="TUNGURAHUA">TUNGURAHUA</option>
+						     				<option value="ZAMORA CHINCHIPE">ZAMORA CHINCHIPE</option>
+				                 </select>
+				                 <select 	id				="tipociusuariomat"  
+				                 			name			="tipociusuariomat"  
+				                 			value			=""
+				                 			style			="width:150px;font:12px;float: left;" 
+				                 			dojoType		="dijit.form.FilteringSelect" 
+				                 			autoComplete	="true">
+				                 			<option value="MATRIMONIO">MATRIMONIO</option>
+				                 </select>
+				                 </div>
+						   </td>
+						   <td>
+						   <div id="cmbmat" style="display: none">
+				                 <label class="estilotxtop"> Datos de Matrimonio AS-400 : </label>
+				                 <input 
+				                 id				="asusumat"
+				                 name			="asusumat" 
+				                 type			="text"
+				                 maxlength     	="1000"  
+				                 value			="" 
+				                 uppercase      ="true"
+				                 rows           ="2"
+				                 style			="width:410px;font:14px;" 
+				                 dojotype		="dijit.form.SimpleTextarea"/>
+				                 <div style="font-family:'Trebuchet MS', Helvetica, sans-serif;font-size:11px;font: bold; color: #9AC4D8;">Nota: PEGAR los datos de matrimonio; Ejm: Tomo, Pagina, Acta, Lugar, Provincia.</div>
+				                 </div>	
+						   </td>
+						   </tr>
+						</table>
+	               </fieldset>
+	               </td>
+	               </tr>
+	               <tr>
+	               <td colspan="4"><div  id="datpadre" style="display: none">
+				   <fieldset id="el11">
+					  <legend style="color:blue;">Datos de PADRE</legend>
+						<table border="0" cellspacing="0" width="100%">
+							<tr>
+						   <td width="15%"><label class="estilotxtop"> Cedula Padre : </label></td>
+						   <td width="18%">
+								   	<input 
+						                 id				="cedpadre"
+						                 name			="cedpadre" 
+						                 type			="text" 
+						                 value			="" 
+						                 style			="width:150px;font:12px;" 
+						                 dojotype		="dijit.form.ValidationTextBox" 
+						                 maxlength      ="13"
+						                 disabled="disabled"/>
+						   </td>
+						   <td rowspan="3"><label class="estilotxtop"> AS-400 : </label>
+						   	<input 
+				                 id				="aspadre"
+				                 name			="aspadre" 
+				                 type			="text"
+				                 maxlength     	="1000"  
+				                 value			="" 
+				                 uppercase      ="true"
+				                 rows           ="4"
+				                 style			="width:410px;font:14px;" 
+				                 dojotype		="dijit.form.SimpleTextarea"
+				                 disabled       ="disabled"/>
+				                 <div style="font-family:'Trebuchet MS', Helvetica, sans-serif;font-size:11px;font: bold; color: #9AC4D8;">Nota: PEGAR las 4 primeras lineas de la opcion 3 del AS400.</div>
+						   </td>
+						   </tr>
+						   <tr>
+						   <td ><label class="estilotxtop"> Apellidos y Nombres : </label></td>
+						   <td colspan="1"><input 
+						                 		id				="apenompadre"
+						                 		name			="apenompadre" 
+						                 		type			="text"
+						                 		value			=""
+						                 		maxlength     	="200"
+						                 		uppercase		="true"
+						                 		style			="width:350px;font:12px;" 
+						                 		dojotype		="dijit.form.ValidationTextBox"
+						                 		disabled="disabled"/>
+						   </td>
+						   </tr>
+						   <tr>
+						   <td ><label class="estilotxtop"> Provincia inscripcion: </label></td>
+						   <td colspan="1"><select 	id				="provpadre"  
+				                 			name			="provpadre"  
+				                 			value			=""
+				                 			style			="width:150px;font:12px;float: left;" 
+				                 			dojoType		="dijit.form.FilteringSelect" 
+				                 			autoComplete	="true"
+				                 			disabled="disabled">
+				                 			<option value="0"></option>
+				                 			<option value="AZUAY">AZUAY</option>
+				                 			<option value="BOLIVAR">BOLIVAR</option>
+						     				<option value="CAÑAR">CAÑAR</option>
+						     				<option value="CARCHI">CARCHI</option>
+						     				<option value="CHIMBORAZO">CHIMBORAZO</option>
+						     				<option value="COTOPAXI">COTOPAXI</option>
+						     				<option value="EL ORO">EL ORO</option>
+						     				<option value="ESMERALDAS">ESMERALDAS</option>
+						     				<option value="GALAPAGOS">GALAPAGOS</option>
+				                 			<option value="GUAYAS">GUAYAS</option>
+						     				<option value="IMBABURA">IMBABURA</option>
+						     				<option value="LOJA">LOJA</option>
+						     				<option value="LOS RIOS">LOS RIOS</option>
+						     				<option value="MANABI">MANABI</option>
+						     				<option value="MACAS">MACAS</option>
+				                 			<option value="MORONA SANTIAGO">MORONA SANTIAGO</option>
+						     				<option value="NAPO">NAPO</option>
+						     				<option value="ORELLANA">ORELLANA</option>
+						     				<option value="PASTAZA">PASTAZA</option>
+						     				<option value="PICHINCHA">PICHINCHA</option>
+						     				<option value="SANTA ELENA">SANTA ELENA</option>
+						     				<option value="SANTO DOMINGO DE LOS TSACHILAS">SANTO DOMINGO DE LOS TSACHILAS</option>
+						     				<option value="TUNGURAHUA">TUNGURAHUA</option>
+						     				<option value="ZAMORA CHINCHIPE">ZAMORA CHINCHIPE</option>
+				                 </select>
+				                 <select 	id				="tipocipadre"  
+				                 			name			="tipocipadre"  
+				                 			value			=""
+				                 			style			="width:150px;font:12px;float: left;" 
+				                 			dojoType		="dijit.form.FilteringSelect" 
+				                 			autoComplete	="true"
+				                 			disabled="disabled">
+				                 			<option value="0"></option>
+				                 			<option value="REFERENCIA">REFERENCIA</option>
+				                 			<option value="NACIMIENTO">NACIMIENTO</option>
+				                 			<option value="DEFUNCION">DEFUNCION</option>
+						     				<option value="MATRIMONIO">MATRIMONIO</option>
+				                 </select>
+						   </td>
+              			 </tr>
+						</table>
+	               </fieldset>
+	               </div>
+	               </td>
+               </tr>
+               
+               <tr>
+               <td colspan="4"><div  id="datmadre" style="display: none">
+				   <fieldset id="el11">
+					  <legend style="color:blue;">Datos de MADRE</legend>
+						<table border="0" cellspacing="0" width="100%">
+							<tr>
+						   <td width="15%"><label class="estilotxtop"> Cedula Madre : </label></td>
+						   <td width="18%">
+								   	<input 
+						                 id				="cedmadre"
+						                 name			="cedmadre" 
+						                 type			="text" 
+						                 value			="" 
+						                 style			="width:150px;font:12px;" 
+						                 dojotype		="dijit.form.ValidationTextBox" 
+						                 maxlength      ="13"
+						                 disabled="disabled"/>
+						   </td>
+						   <td rowspan="3"><label class="estilotxtop"> AS-400 : </label>
+						   	<input 
+				                 id				="asmadre"
+				                 name			="asmadre" 
+				                 type			="text"
+				                 maxlength     	="1000"  
+				                 value			="" 
+				                 uppercase      ="true"
+				                 rows           ="4"
+				                 style			="width:410px;font:14px;" 
+				                 dojotype		="dijit.form.SimpleTextarea"
+				                 disabled       ="disabled"/>
+				                 <div style="font-family:'Trebuchet MS', Helvetica, sans-serif;font-size:11px;font: bold; color: #9AC4D8;">Nota: PEGAR las 4 primeras lineas de la opcion 3 del AS400.</div>
+						   </td>
+						   </tr>
+						   <tr>
+						   <td ><label class="estilotxtop"> Apellidos y Nombres : </label></td>
+						   <td colspan="1"><input 
+						                 		id				="apenommadre"
+						                 		name			="apenommadre" 
+						                 		type			="text"
+						                 		value			=""
+						                 		maxlength     	="150"
+						                 		uppercase		="true"
+						                 		style			="width:350px;font:12px;" 
+						                 		dojotype		="dijit.form.ValidationTextBox"
+						                 		disabled="disabled"/>
+						   </td>
+						   </tr>
+						   <tr>
+						   <td ><label class="estilotxtop"> Provincia inscripcion: </label></td>
+						   <td colspan="1"><select 	id				="provmadre"  
+				                 			name			="provmadre"  
+				                 			value			=""
+				                 			style			="width:150px;font:12px;float: left;" 
+				                 			dojoType		="dijit.form.FilteringSelect" 
+				                 			autoComplete	="true"
+				                 			disabled="disabled">
+				                 			<option value="0"></option>
+				                 			<option value="AZUAY">AZUAY</option>
+				                 			<option value="BOLIVAR">BOLIVAR</option>
+						     				<option value="CAÑAR">CAÑAR</option>
+						     				<option value="CARCHI">CARCHI</option>
+						     				<option value="CHIMBORAZO">CHIMBORAZO</option>
+						     				<option value="COTOPAXI">COTOPAXI</option>
+						     				<option value="EL ORO">EL ORO</option>
+						     				<option value="ESMERALDAS">ESMERALDAS</option>
+						     				<option value="GALAPAGOS">GALAPAGOS</option>
+				                 			<option value="GUAYAS">GUAYAS</option>
+						     				<option value="IMBABURA">IMBABURA</option>
+						     				<option value="LOJA">LOJA</option>
+						     				<option value="LOS RIOS">LOS RIOS</option>
+						     				<option value="MANABI">MANABI</option>
+						     				<option value="MACAS">MACAS</option>
+				                 			<option value="MORONA SANTIAGO">MORONA SANTIAGO</option>
+						     				<option value="NAPO">NAPO</option>
+						     				<option value="ORELLANA">ORELLANA</option>
+						     				<option value="PASTAZA">PASTAZA</option>
+						     				<option value="PICHINCHA">PICHINCHA</option>
+						     				<option value="SANTA ELENA">SANTA ELENA</option>
+						     				<option value="SANTO DOMINGO DE LOS TSACHILAS">SANTO DOMINGO DE LOS TSACHILAS</option>
+						     				<option value="TUNGURAHUA">TUNGURAHUA</option>
+						     				<option value="ZAMORA CHINCHIPE">ZAMORA CHINCHIPE</option>
+				                 </select>
+				                 <select 	id				="tipocimadre"  
+				                 			name			="tipocimadre"  
+				                 			value			=""
+				                 			style			="width:150px;font:12px;float: left;" 
+				                 			dojoType		="dijit.form.FilteringSelect" 
+				                 			autoComplete	="true"
+				                 			disabled="disabled">
+				                 			<option value="0"></option>
+				                 			<option value="REFERENCIA">REFERENCIA</option>
+				                 			<option value="NACIMIENTO">NACIMIENTO</option>
+				                 			<option value="DEFUNCION">DEFUNCION</option>
+						     				<option value="MATRIMONIO">MATRIMONIO</option>
+				                 </select>
+						   </td>
+						   </tr>
+						   
+						</table>
+	               </fieldset>
+	               </div>
+	               </td>
+	               </tr>
+	               <tr>
+	               <td colspan="4"><div  id="datconyuge" style="display: none">
+				   <fieldset id="el11">
+					  <legend style="color:blue;">Datos de CONYUGE</legend>
+						<table border="0" cellspacing="0" width="100%">
+							<tr>
+						   <td width="15%"><label class="estilotxtop"> Cedula CONYUGE : </label></td>
+						   <td width="18%">
+								   	<input 
+						                 id				="cedconyuge"
+						                 name			="cedconyuge" 
+						                 type			="text" 
+						                 value			="" 
+						                 style			="width:150px;font:12px;" 
+						                 dojotype		="dijit.form.ValidationTextBox" 
+						                 maxlength      ="13"
+						                 disabled="disabled"/>
+						   </td>
+						   <td rowspan="3"><label class="estilotxtop"> AS-400 : </label>
+						   	<input 
+				                 id				="asconyuge"
+				                 name			="asconyuge" 
+				                 type			="text"
+				                 maxlength     	="1000"  
+				                 value			="" 
+				                 uppercase      ="true"
+				                 rows           ="4"
+				                 style			="width:410px;font:14px;" 
+				                 dojotype		="dijit.form.SimpleTextarea"
+				                 disabled       ="disabled"/>
+				                 <div style="font-family:'Trebuchet MS', Helvetica, sans-serif;font-size:11px;font: bold; color: #9AC4D8;">Nota: PEGAR las 4 primeras lineas de la opcion 3 del AS400 o los datos del MATRIMONIO.</div>
+						   </td>
+						   </tr>
+						   <tr>
+						   <td ><label class="estilotxtop"> Apellidos y Nombres : </label></td>
+						   <td colspan="1"><input 
+						                 		id				="apenomconyuge"
+						                 		name			="apenomconyuge" 
+						                 		type			="text"
+						                 		value			=""
+						                 		maxlength     	="150"
+						                 		uppercase		="true"
+						                 		style			="width:350px;font:12px;" 
+						                 		dojotype		="dijit.form.ValidationTextBox"
+						                 		disabled="disabled"/>
+						   </td>
+						   </tr>
+						   <tr>
+						   <td ><label class="estilotxtop"> Provincia inscripcion: </label></td>
+						   <td colspan="1"><select 	id				="provconyuge"  
+				                 			name			="provconyuge"  
+				                 			value			=""
+				                 			style			="width:150px;font:12px;float: left;" 
+				                 			dojoType		="dijit.form.FilteringSelect" 
+				                 			autoComplete	="true"
+				                 			disabled="disabled">
+				                 			<option value="0"></option>
+				                 			<option value="AZUAY">AZUAY</option>
+				                 			<option value="BOLIVAR">BOLIVAR</option>
+						     				<option value="CAÑAR">CAÑAR</option>
+						     				<option value="CARCHI">CARCHI</option>
+						     				<option value="CHIMBORAZO">CHIMBORAZO</option>
+						     				<option value="COTOPAXI">COTOPAXI</option>
+						     				<option value="EL ORO">EL ORO</option>
+						     				<option value="ESMERALDAS">ESMERALDAS</option>
+						     				<option value="GALAPAGOS">GALAPAGOS</option>
+				                 			<option value="GUAYAS">GUAYAS</option>
+						     				<option value="IMBABURA">IMBABURA</option>
+						     				<option value="LOJA">LOJA</option>
+						     				<option value="LOS RIOS">LOS RIOS</option>
+						     				<option value="MANABI">MANABI</option>
+						     				<option value="MACAS">MACAS</option>
+				                 			<option value="MORONA SANTIAGO">MORONA SANTIAGO</option>
+						     				<option value="NAPO">NAPO</option>
+						     				<option value="ORELLANA">ORELLANA</option>
+						     				<option value="PASTAZA">PASTAZA</option>
+						     				<option value="PICHINCHA">PICHINCHA</option>
+						     				<option value="SANTA ELENA">SANTA ELENA</option>
+						     				<option value="SANTO DOMINGO DE LOS TSACHILAS">SANTO DOMINGO DE LOS TSACHILAS</option>
+						     				<option value="TUNGURAHUA">TUNGURAHUA</option>
+						     				<option value="ZAMORA CHINCHIPE">ZAMORA CHINCHIPE</option>
+				                 </select>
+				                 <select 	id				="tipociconyuge"  
+				                 			name			="tipociconyuge"  
+				                 			value			=""
+				                 			style			="width:150px;font:12px;float: left;" 
+				                 			dojoType		="dijit.form.FilteringSelect" 
+				                 			autoComplete	="true"
+				                 			disabled="disabled">
+				                 			<option value="0"></option>
+				                 			<option value="REFERENCIA">REFERENCIA</option>
+				                 			<option value="NACIMIENTO">NACIMIENTO</option>
+				                 			<option value="DEFUNCION">DEFUNCION</option>
+						     				<option value="MATRIMONIO">MATRIMONIO</option>
+				                 </select>
+				                 
+						   </td>
+						   </tr>
+						   
+						</table>
+	               </fieldset>
+	               </div>
+	               </td>
+               </tr>
+               <tr>
+               <td><label class="estilotxtop"> Telefono de contacto :</label></td>
+               <td>
+						   <input 
+						                 		id				="telefono"
+						                 		name			="telefono" 
+						                 		type			="text"
+						                 		value			=""
+						                 		maxlength     	="45"
+						                 		style			="width:200px;font:12px;float: left;" 
+						                 		dojotype		="dijit.form.ValidationTextBox"
+						                 		promptMessage   ="Mas de un numero separar con ;"/>
+						   </td>
+               <td rowspan="4"><label class="estilotxtop"> Observaci&oacute;n</label></td>
+               <td rowspan="4">
+						   <input 
+				                 id				="observacion"
+				                 name			="observacion" 
+				                 type			="text"
+				                 maxlength     	="300"  
+				                 value			="" 
+				                 uppercase      ="true"
+				                 rows           ="5"
+				                 style			="width:410px;font:14px;" 
+				                 dojotype		="dijit.form.SimpleTextarea"/>
+						   </td>
+               </tr>
+               <tr>
+               <td><label class="estilotxtop"> Correo electronico :</label></td>
+               <td>
+						   <input 
+						                 		id				="correoe"
+						                 		name			="correoe" 
+						                 		type			="text"
+						                 		value			=""
+						                 		maxlength     	="255"
+						                 		style			="width:200px;font:12px;float: left;" 
+						                 		dojotype		="dijit.form.ValidationTextBox"/>
+						   </td>
+               </tr>
+               <tr>
+               <td><label class="estilotxtop"> Fecha de respuesta :</label></td>
+               <td>
+						   <input 
+						                 		id				="fechares"
+						                 		name			="fechares" 
+						                 		type			="text"
+						                 		value			=""
+						                 		maxlength     	="12"
+						                 		style			="width:200px;font:12px;float: left;" 
+						                 		dojotype		="dijit.form.ValidationTextBox"
+						                 		readonly="readonly"/>
+						   </td>
+               </tr>
+               <tr>
+               <td><label class="estilotxtop"> Numero de solicitud :</label></td>
+               <td>
+						   <input 
+						                 		id				="numsol"
+						                 		name			="numsol" 
+						                 		type			="text"
+						                 		value			="<?php echo $this->nrosol?>"
+						                 		maxlength     	="11"
+						                 		style			="width:200px;font:12px;float: left;" 
+						                 		dojotype		="dijit.form.ValidationTextBox"
+						                 		readonly="readonly"/>
+						   </td>
+               </tr>
+               <tr>
+               <td colspan="4">
+               <br>
+               </td>
+               </tr>
+               <tr>
+               <td colspan="4">
+					  <table border="0" cellspacing="0" cellpadding="0" width="100%">
+					   <tr>
+							<td><div align="center">
+							<button class="estilotxtop" dojoType="dijit.form.Button" onclick="guardarSolicitudPartida();"><img src="<?php echo $this->baseUrl();?>/imagenes/save.png" height="20px" width="20px"/>
+								ENVIAR SOLICITUD
+							</button>
+							</div>
+							</td>
+							<td><div align="left">
+								<button class="estilotxtop" dojoType="dijit.form.Button" onclick="cancelarSolicitudPartida();"><img src="<?php echo $this->baseUrl();?>/imagenes/cancel.png" height="20px" width="20px"/> CANCELAR</button>
+							</div>
+							</td>
+						</tr>
+					   </table>
+               </td>
+               </tr>
+               </table>
+        </div>            
+     </div>                                

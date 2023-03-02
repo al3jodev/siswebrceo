@@ -1,0 +1,93 @@
+        <div dojoType="dijit.layout.AccordionContainer">          
+            <div dojoType="dijit.layout.ContentPane" title="REPORTE DE SOLICITUDES POR FECHA" selected="true" align="center">
+                <table width="95%" border="0">
+                <tr>
+                <td>
+	               <div id="mostrarform" style="display: ;" align="center">
+	               <br>
+	                <fieldset id="el11">
+					  <legend style="color:blue;">	Informacion requerida</legend>
+						<table border="0" cellspacing="2" width="100%">
+						   <tr>
+							   <td width="12%"><div id="lblIngFechaDesde" style="display: block;"><label class="estilotxtop"> Fecha Desde: </label></div></td>
+							   <td width="18%"><div id="txtIngFechaDesde" style="display: block;">
+							   		<input 
+						                 		id				="fechadesde"
+						                 		name			="fechadesde" 
+						                 		type			="text" 
+						                 		value			="" 
+						                 		style			="width:100px;font:12px;float: left;" 
+						                 		dojotype		="dijit.form.DateTextBox" 
+						                 		maxlength        ="10"
+						                 		constraints     ="{formatLenght:'short',datePattern:'yyyy-MM-dd'}"/>
+							        </div>
+							   </td>
+							   <td  width="20%"></td>
+							   <td  width="20%"></td>
+							   <td  width="22%"></td>
+						   </tr>
+						   <tr>
+							   <td width="12%"><div id="lblIngFechaDesde" style="display: block;"><label class="estilotxtop"> Fecha Hasta: </label></div></td>
+							   <td width="18%"><div id="txtIngFechaDesde" style="display: block;">
+							   		<input 
+						                 		id				="fechahasta"
+						                 		name			="fechahasta" 
+						                 		type			="text" 
+						                 		value			="" 
+						                 		style			="width:100px;font:12px;float: left;" 
+						                 		dojotype		="dijit.form.DateTextBox" 
+						                 		maxlength        ="10"
+						                 		constraints     ="{formatLenght:'short',datePattern:'yyyy-MM-dd'}"/>
+							        </div>
+							   </td>
+							   <td  width="20%"></td>
+							   <td  width="20%"></td>
+							   <td  width="22%"></td>
+						   </tr>
+						   <tr>
+							<td colspan="2"></td>
+							<td>
+								<div align="right">
+									<button dojoType="dijit.form.Button" onclick="buscarsolicitudxfecha();"><img src="<?php echo $this->baseUrl();?>/imagenes/search_icon.png" height="28px" width="28px"/>Buscar</button>
+				                 </div>
+							</td>
+							<td colspan="2">
+							<div id="idEspera" style="display: none;" align="left">
+			                 		<img  src="<?php echo $this->baseUrl();?>/imagenes/espera.gif" height="32px" width="32px"/>
+			                 	</div>
+							</td>
+						</tr>
+						<tr>
+							<td colspan="5">			
+					          <table dojotype="dojox.grid.DataGrid" id="grilla" jsId="grilla" height="250px" style="font-size:11px;border: 1px solid #9AC4D8;">
+					            <thead>
+					              <tr>
+					                <th field="val_num_solicitud "width="30px">Nro Solicitud</th>
+					                <th field="val_id" width="5%" hidden="true">Id</th>
+					                <th field="val_tipo" width="40px">Tipo Partida</th>
+					                <th field=val_cedula width="60px">Cedula</th>
+					                <th field="val_apenom" width="150px">Apellidos y nombres</th>
+					                <th field="val_provincia" width="80px">Provincia Origen</th>
+					                <th field="val_fecha_solicitud" width="50px">Fecha Solicitud</th>		
+					                <th field="val_fecha_respuesta" width="50px">Fecha Entrega</th>
+					              </tr>
+					            </thead>
+					        </table>
+							</td>							
+						</tr>
+						<tr><td colspan="5">
+							<div align="center">
+							   <button id="btnImprimir" name="btnImprimir" class="estilotxtop" dojoType="dijit.form.Button" onclick="imprimirRptsolicitudes();"><img src="<?php echo $this->baseUrl();?>/imagenes/impresora.png" height="32px" width="32px"/>
+							     Imprimir
+							   </button>
+							</div>
+						</td></tr>
+						</table>
+	               </fieldset>
+	               <br>
+				   </div>
+               </td>
+               </tr>
+               </table>
+            </div>            
+       </div>                                

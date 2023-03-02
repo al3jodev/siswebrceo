@@ -1,0 +1,24 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"/>
+<!---	PLANTILLA DE ADMINISTRACION    -->
+<html>
+<head>
+<?php  
+	$this->dojo()->setDjConfigOption('parseOnLoad', true );
+    $this->dojo()->setLocalPath($this->baseUrl().'/js/dojo/dojo/dojo.js')
+                ->addStylesheetModule('dijit.themes.soria');
+    echo $this->dojo();                                                          
+    echo $this->headTitle(); 
+?>
+<!--SCRIPTS JAVA-->
+<script type="text/javascript" src="<?php echo $this->baseUrl();?>/js/initRequiredDojo.js"></script>
+
+<!--ESTILOS CSS-->
+<link rel="stylesheet" type="text/css" href="<?php echo $this->baseUrl();?>/css/inicio.css"/>
+</head>
+
+<body class="soria">
+	<div class="login">
+				<?php echo $this->layout()->content; ?>
+	</div>
+</body>
+</html>

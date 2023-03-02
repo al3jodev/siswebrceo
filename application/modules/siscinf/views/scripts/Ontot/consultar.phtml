@@ -1,0 +1,223 @@
+        <div dojoType="dijit.layout.AccordionContainer">          
+            <div dojoType="dijit.layout.ContentPane" title="RE-IMPRESION DE FORMULARIOS" selected="true" align="center">
+                <?php 
+                   echo $this->form;
+                ?>
+                <div class="box" id="wipeDisplayNode">	
+                <br>	
+					<table border="0" cellspacing="5" width="100%">
+					<tr>	
+					   <td width="20%"><label class="estilotxtop"> Buscar por : </label></td>
+					   <td width="20%">
+					   			<select 	id				="buscarpor"  
+				                 			name			="buscarpor"  
+				                 			value			=""
+				                 			style			="width:150px;font:12px;float: left;" 
+				                 			dojoType		="dijit.form.FilteringSelect" 
+				                 			autoComplete	="true"  
+				                 			invalidMessage	="Elija el criterio de busqueda"
+				                 			onchange        ="mostrarfecha(this.value)">
+				                 			<option value="0"></option>
+				                 			<option value="fecha">Fecha especifica</option>
+				                 </select></td>
+					   <td width="20%"></td>
+					   <td width="20%"></td>
+					   <td width="20%"></td>
+					</tr>
+					<tr>	
+					   <td width="20%"><div id="lblfecha" style="display: none;"><label class="estilotxtop"> Ingrese la fecha: </label></div></td>
+					   <td width="20%"><div id="txtfecha" style="display: none;">
+					   			<input 
+					                 		id				="fecha"
+					                 		name			="fecha" 
+					                 		type			="text" 
+					                 		value			="" 
+					                 		style			="width:100px;font:12px;float: left;" 
+					                 		dojotype		="dijit.form.DateTextBox" 
+					                 		maxlength        ="10"
+					                 		constraints     ="{formatLenght:'short',datePattern:'yyyy-MM-dd'}"/>
+				                 </div>
+				       </td>
+					   <td width="20%"></td>
+					   <td width="20%"></td>
+					   <td width="20%"></td>
+					</tr>
+					   	<tr>
+							<td colspan="2"></td>
+							<td>
+								<div align="center">
+									<button class="estilotxtop" dojoType="dijit.form.Button" onclick="buscarFormularios();"><img src="<?php echo $this->baseUrl();?>/imagenes/search_icon.png" height="28px" width="28px"/>Buscar</button>
+				                 </div>
+							</td>
+							<td colspan="2">
+							<div id="idEspera" style="display: none;" align="left">
+			                 		<img  src="<?php echo $this->baseUrl();?>/imagenes/espera.gif" height="32px" width="32px"/>
+			                 	</div>
+							</td>
+						</tr>				  					   					   
+						<tr>
+							<td colspan="5">			
+					          <table dojotype="dojox.grid.DataGrid" id="grilla" jsId="grilla" height="200px" style="font-family:'Trebuchet MS', Helvetica, sans-serif;font-size:12px;border: 1px solid #9AC4D8;">
+					            <thead>
+					              <tr>
+					                <th width="25px" formatter="checkFormatter1">Nro</th>
+					                <th field="ot_id" width="5%" hidden="true">Id</th>
+					                <th field="ot_num" width="40px">Num. Formulario</th>
+					                <th field=ot_cedula width="60px">Cedula</th>
+					                <th field="ot_apenom" width="150px">Apellidos y nombres</th>
+					                <th field="ot_fecha" width="50px">Fecha</th>		
+					                <th field="ot_tipo" width="50px">Tipo</th>
+					              </tr>
+					            </thead>
+					        </table>
+							</td>
+						</tr>
+						<tr><td colspan="5"><div style="font-family:'Trebuchet MS', Helvetica, sans-serif;font-size:11px;font: bold; color: #9AC4D8;">Nota: Para modificar o reimprimir un formulario debe seleccionar la fila.</div></td></tr>
+						<tr>
+							<td colspan="5">
+							<div align="center">
+								<button class="estilotxtop" dojoType="dijit.form.Button" onclick="modificarFormulario();"><img  src="<?php echo $this->baseUrl();?>/imagenes/socio_delete.png" height="32px" width="32px"/> Modificar o Reimprimir Formulario</button>
+							</div>
+							</td>
+						</tr>
+					</table>					
+            	</div>
+            <div id="mostrardatos" style="display: none;" align="center">
+             <div  class="box">
+               <br>
+			   <table width="90%">
+                <tr>
+                <td>	
+                <br>	
+	                <fieldset id="el11">
+					  <legend style="color:blue;">	Datos del Formulario</legend>
+						<table border="0" cellspacing="5" width="100%">
+							<tr>
+						      <td colspan="2">
+							      	<div id="aviso" style="display: none;" align="center"><font color="red">Los campos marcados(*) son obligatorios</font></div>
+						      </td>
+						    </tr>
+						    <tr>
+						   <td width="35%"><div id="lblid" style="display: none;"><label class="estilotxtop"> Id : </label></div></td>
+						   <td ><div id="txtid" style="display: none;">
+						   <input 
+						                 		id				="idontotcon"
+						                 		name			="idontotcon" 
+						                 		type			="text"
+						                 		maxlength     	="10"  
+						                 		value			="" 
+						                 		style			="width:250px;font:12px;float: left;" 
+						                 		dojotype		="dijit.form.ValidationTextBox"/>
+						                 		</div>
+						   </td>		                 				   		   
+						   </tr>
+						    <tr>
+						   <td width="35%"><label class="estilotxtop"> Numero de Formulario : </label></td>
+						   <td ><input 
+						                 		id				="numformcon"
+						                 		name			="numformcon" 
+						                 		type			="text"
+						                 		maxlength     	="200"  
+						                 		value			="" 
+						                 		style			="width:250px;font:12px;float: left;" 
+						                 		dojotype		="dijit.form.ValidationTextBox"
+						                 		readonly        ="readonly"/>
+						   </td>		                 				   		   
+						   </tr>
+						    <tr>
+						   <td width="35%"><label class="estilotxtop"> Lugar y Fecha : </label></td>
+						   <td ><input 
+						                 		id				="lugfechacon"
+						                 		name			="lugfechacon" 
+						                 		type			="text"
+						                 		maxlength     	="200"  
+						                 		value			="" 
+						                 		style			="width:250px;font:12px;float: left;" 
+						                 		dojotype		="dijit.form.ValidationTextBox"/>
+						   </td>		                 				   		   
+						   </tr>
+							<tr>
+						   <td width="35%"><label class="estilotxtop"> Cedula : </label></td>
+						   <td ><input 
+						                 		id				="cedulacon"
+						                 		name			="cedulacon" 
+						                 		type			="text"
+						                 		maxlength     	="13"  
+						                 		value			="" 
+						                 		style			="width:150px;font:12px;float: left;" 
+						                 		dojotype		="dijit.form.ValidationTextBox" 
+						                 		uppercase       ="true"
+						                 		invalidmessage	="Ing. el numero de cedula del operador"/>
+						   </td>		                 				   		   
+						   </tr>
+						   <tr>
+						   <td ><label class="estilotxtop"> Apellidos y nombres: </label></td>
+						   <td ><input 
+						                 		id				="apellidosopcon"
+						                 		name			="apellidosopcon" 
+						                 		type			="text"
+						                 		value			=""
+						                 		maxlength     	="100"
+						                 		uppercase		="true"
+						                 		style			="width:400px;font:12px;float: left;" 
+						                 		dojotype		="dijit.form.ValidationTextBox"/>
+						   </td>		                 				   		   
+						   </tr>
+						   <tr>
+						   <td ><label class="estilotxtop"> Decision del usuario: </label></td>
+						   <td ><select 	id				="decisioncon"  
+				                 			name			="decisioncon"  
+				                 			value			=""
+				                 			style			="width:250px;font:12px;float: left;" 
+				                 			dojoType		="dijit.form.FilteringSelect" 
+				                 			autoComplete	="true"  
+				                 			required		="true"
+				                 			invalidMessage	="Elija la ciudad donde Opera"
+				                 			onchange         ="mostrardp(this.value)">
+				                 			<option value="0"></option>
+				                 			<option value="Donacion">Donacion</option>
+				                 			<option value="DonacionP">Donacion Parcial</option>
+				                 			<option value="Negativa">Negativa a la Donacion</option>
+						     				<option value="Revocatoria">Revocatoria de la voluntad</option>
+				                 </select>
+						   </td>		                 				   		   
+						   </tr>
+						   <tr>
+						   <td ><div id="lbldp" style="display: none;"><label class="estilotxtop"></label></div></td>
+						   <td ><div id="txtdp" style="display: none;"><input type="radio" name="dparcial" id="organos" value="organos" /><label for="organos" class="estilotxtop">Organos</label>
+							    <br />
+							    <input type="radio" name="dparcial" id="tejidos" value="tejidos" /><label for="tejidos" class="estilotxtop">Tejidos</label>
+							    </div>
+						   </td>		                 				   		   
+						   </tr>
+						</table>
+	               </fieldset>
+	               <br>
+				  
+				  <table border="0" cellspacing="0" cellpadding="0" width="100%">
+	               <tr>
+						<td colspan="2"></td>
+				   </tr>
+				   <tr>
+						<td><div align="center">
+						<button class="estilotxtop" dojoType="dijit.form.Button" onclick="grabarconsultar();"><img src="<?php echo $this->baseUrl();?>/imagenes/save.png" height="20px" width="20px"/>
+						Grabar e Imprimir
+						</button>
+						</div>
+						</td>
+						<td><div align="left">
+							<button class="estilotxtop" dojoType="dijit.form.Button" onclick="cancelarconsulta();"><img src="<?php echo $this->baseUrl();?>/imagenes/cancel.png" height="24px" width="24px"/> Cancelar</button>
+						</div>
+						</td>
+					</tr>
+					<tr>
+						<td colspan="2">&nbsp;</td>
+				   </tr>
+				   </table>
+               </td>
+               </tr>
+			   </table>
+			  </div>
+			 </div>
+            </div>            
+       </div>                                

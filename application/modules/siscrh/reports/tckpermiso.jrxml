@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="tckpermiso" language="groovy" pageWidth="206" pageHeight="720" columnWidth="196" leftMargin="5" rightMargin="5" topMargin="6" bottomMargin="20">
+	<property name="ireport.zoom" value="2.4157650000000026"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="25"/>
+	<parameter name="DIRECCION_LOGO" class="java.lang.String"/>
+	<parameter name="ID" class="java.lang.Long"/>
+	<queryString>
+		<![CDATA[SELECT
+  perm_id,
+  perm_fecha,
+  perm_cedula,
+  perm_apenom AS NOMBRE_FUNCIONARIO,
+  perm_observacion,
+  perm_estado,
+  perm_hora_salida AS HORASALIDA,
+  perm_autorizadopor AS AUTORIZA
+FROM
+	permiso
+WHERE perm_id = $P{ID}]]>
+	</queryString>
+	<field name="perm_id" class="java.lang.Long">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="perm_fecha" class="java.sql.Date">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="perm_cedula" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="nombre_funcionario" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="perm_observacion" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="perm_estado" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="horasalida" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="autoriza" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="63" splitType="Stretch">
+			<image scaleImage="RealSize">
+				<reportElement x="2" y="-4" width="60" height="60"/>
+				<imageExpression class="java.lang.String"><![CDATA[$P{DIRECCION_LOGO}]]></imageExpression>
+			</image>
+			<staticText>
+				<reportElement x="57" y="5" width="139" height="29"/>
+				<textElement verticalAlignment="Middle">
+					<font size="7" isBold="true"/>
+				</textElement>
+				<text><![CDATA[DIRECCION GENERAL DE REGISTRO CIVIL, IDENTIFICACION Y CEDULACION]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="47" width="195" height="16"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12" isBold="true" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[PERMISO DE SALIDA CORTA]]></text>
+			</staticText>
+		</band>
+	</title>
+	<detail>
+		<band height="140" splitType="Stretch">
+			<textField>
+				<reportElement x="3" y="7" width="185" height="63"/>
+				<textElement verticalAlignment="Top">
+					<font fontName="SansSerif" size="10" isBold="false"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA["Se autoriza salida a: "+$F{nombre_funcionario}+" de la institucion a partir de: "+$F{horasalida}+"."]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="4" y="80" width="185" height="19"/>
+				<textElement verticalAlignment="Top">
+					<font fontName="SansSerif" size="10" isBold="true"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA["Machala, "+$F{perm_fecha}+"."]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="2" y="114" width="193" height="23"/>
+				<textElement verticalAlignment="Top">
+					<font fontName="SansSerif" size="9" isBold="false"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA["Autorizado por: "+$F{autoriza}+"."]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+</jasperReport>

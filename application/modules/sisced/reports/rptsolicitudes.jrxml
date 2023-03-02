@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="rptsolicitudes" language="groovy" pageWidth="595" pageHeight="842" whenNoDataType="AllSectionsNoDetail" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20">
+	<property name="ireport.zoom" value="1.6500000000000008"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="DIRECCION_LOGO" class="java.lang.String"/>
+	<parameter name="SUBREPORT_DIR" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA["C:\\xampp\\htdocs\\siswebrceo\\application\\modules\\siscp\\reports\\"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="FECI" class="java.util.Date">
+		<parameterDescription><![CDATA[]]></parameterDescription>
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="FECF" class="java.util.Date"/>
+	<parameter name="MES" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[SELECT
+  validacion.val_id,
+  validacion.val_cedula,
+  validacion.val_apenom,
+  validacion.val_provincia,
+  validacion.val_fecha_solicitud,
+  validacion.val_tipo
+FROM
+  public.validacion
+WHERE
+  validacion.val_fecha_solicitud >=  $P{FECI} AND
+  validacion.val_fecha_solicitud <= $P{FECF}
+ORDER BY
+  validacion.val_provincia ASC;]]>
+	</queryString>
+	<field name="val_id" class="java.lang.Long">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="val_fecha_solicitud" class="java.sql.Date">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="val_cedula" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="val_apenom" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="val_provincia" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="val_tipo" class="java.lang.String"/>
+	<variable name="TOTAL_PV" class="java.math.BigDecimal" calculation="Sum">
+		<variableExpression><![CDATA[]]></variableExpression>
+	</variable>
+	<variable name="TOTAL_RE" class="java.math.BigDecimal" calculation="Sum">
+		<variableExpression><![CDATA[]]></variableExpression>
+	</variable>
+	<variable name="TOTAL_EN" class="java.math.BigDecimal" calculation="Sum">
+		<variableExpression><![CDATA[]]></variableExpression>
+	</variable>
+	<variable name="TOTAL_REC" class="java.math.BigDecimal" calculation="Sum">
+		<variableExpression><![CDATA[]]></variableExpression>
+	</variable>
+	<variable name="TOTAL" class="java.math.BigDecimal" calculation="Sum">
+		<variableExpression><![CDATA[]]></variableExpression>
+	</variable>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="79" splitType="Stretch">
+			<rectangle>
+				<reportElement x="0" y="0" width="555" height="79"/>
+			</rectangle>
+			<image>
+				<reportElement x="5" y="6" width="80" height="70"/>
+				<imageExpression class="java.lang.String"><![CDATA[$P{DIRECCION_LOGO}]]></imageExpression>
+			</image>
+			<staticText>
+				<reportElement x="70" y="8" width="485" height="25"/>
+				<textElement textAlignment="Center" verticalAlignment="Top">
+					<font fontName="SansSerif" size="16" isBold="true" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[DIRECCION PROVINCIAL DEL REGISTRO CIVIL DE EL ORO]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="70" y="33" width="469" height="20"/>
+				<textElement textAlignment="Center" markup="none">
+					<font size="14" isBold="true" isUnderline="false"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA["REPORTE DE SALIDAS CORTAS AGENCIA MACHALA"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="70" y="53" width="469" height="20"/>
+				<textElement textAlignment="Center" markup="none">
+					<font size="14" isBold="true" isUnderline="false"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$P{MES}]]></textFieldExpression>
+			</textField>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="17" splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="30" splitType="Stretch">
+			<rectangle>
+				<reportElement x="0" y="0" width="38" height="30" backcolor="#CCCCCC"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="8" y="7" width="23" height="17"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[No]]></text>
+			</staticText>
+			<rectangle>
+				<reportElement x="38" y="0" width="517" height="30" backcolor="#CCCCCC"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="165" y="5" width="240" height="20"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12" isBold="true" isUnderline="false"/>
+				</textElement>
+				<text><![CDATA[DATOS]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="42" splitType="Stretch">
+			<rectangle>
+				<reportElement x="0" y="0" width="38" height="42"/>
+			</rectangle>
+			<textField>
+				<reportElement x="4" y="11" width="28" height="19"/>
+				<textElement textAlignment="Center">
+					<font size="11"/>
+				</textElement>
+				<textFieldExpression class="java.lang.Integer"><![CDATA[$V{REPORT_COUNT}]]></textFieldExpression>
+			</textField>
+			<rectangle>
+				<reportElement x="38" y="0" width="517" height="42"/>
+			</rectangle>
+			<textField>
+				<reportElement isPrintRepeatedValues="false" x="55" y="4" width="490" height="35"/>
+				<textElement verticalAlignment="Middle" markup="none">
+					<font size="9" isBold="false" isUnderline="false"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{val_apenom}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="30" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="39" splitType="Stretch"/>
+	</pageFooter>
+</jasperReport>

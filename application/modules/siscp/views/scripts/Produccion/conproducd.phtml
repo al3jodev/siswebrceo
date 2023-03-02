@@ -1,0 +1,459 @@
+        <div dojoType="dojo.data.ItemFileReadStore" jsId="voperadores" url="<?php echo $this->voperadores;?>"></div>
+        <div dojoType="dojo.data.ItemFileReadStore" jsId="terror" url="<?php echo $this->terror;?>"></div>
+        <div dojoType="dijit.layout.AccordionContainer">          
+            <div dojoType="dijit.layout.ContentPane" title="CONSULTAR PRODUCCION POR OPERADOR" selected="true" align="center">
+                <?php 
+                   echo $this->form;
+                ?>	
+                <div class="box" id="wipeDisplayNode">	
+                <br>	
+					<table border="0" cellspacing="5" width="100%" height="100%">
+					<tr>	
+					   <td width="20%"><label class="estilotxtop"> Elija el Operador : </label></td>
+					   <td width="20%" colspan="2">
+					   		<select 	id				="voperadores"  
+			                 			name			="voperadores"  
+			                 			value			=""
+			                 			store		    ="voperadores" 
+			                 			style			="width:380px;float:left;" 
+			                 			dojoType		="dijit.form.FilteringSelect" 
+			                 			autoComplete	="true"  
+			                 			required     	="true"
+			                 			searchAttr	    ="nombreape" 
+			                 			invalidMessage	="Elija un Operador">
+			                 </select></td>
+					   <td width="20%"></td>
+					   <td width="20%"></td>
+					</tr>
+					<tr>	
+					   <td width="20%"><label class="estilotxtop"> Buscar produccion: </label></td>
+					   <td width="20%">
+					   			<select 	id				="buscarpor"  
+				                 			name			="buscarpor"  
+				                 			value			=""
+				                 			style			="width:150px;font:12px;float: left;" 
+				                 			dojoType		="dijit.form.FilteringSelect" 
+				                 			autoComplete	="true"  
+				                 			invalidMessage	="Elija el criterio de busqueda"
+				                 			onchange        ="mostrarmes(this.value)">
+				                 			<option value="0"></option>
+				                 			<option value="Rango">Rango especifico</option>
+				                 			<option value="Mensual">Mensual</option>
+				                 			<option value="Total">Total</option>
+				                 </select></td>
+					   <td width="20%"></td>
+					   <td width="20%"></td>
+					   <td width="20%"></td>
+					</tr>
+					<tr>
+						   <td width="20%"><div id="lblIngFechaDesde" style="display: none;"><label class="estilotxtop"> Fecha Desde: </label></div></td>
+						   <td width="20%"><div id="txtIngFechaDesde" style="display: none;">
+						   		<input 
+					                 		id				="fechadesde"
+					                 		name			="fechadesde" 
+					                 		type			="text" 
+					                 		value			="" 
+					                 		style			="width:100px;font:12px;float: left;" 
+					                 		dojotype		="dijit.form.DateTextBox" 
+					                 		maxlength        ="10"
+					                 		constraints     ="{formatLenght:'short',datePattern:'dd-MM-yyyy'}"/>
+						        </div>
+						   </td>
+						   <td  width="20%"></td>
+						   <td  width="20%"><div id="lblIngFechaHasta" style="display: none;"><label class="estilotxtop"> Fecha Hasta: </label></div></td>
+						   <td  width="20%"><div id="txtIngFechaHasta" style="display: none;">
+						   		<input 
+					                 		id				="fechahasta"
+					                 		name			="fechahasta" 
+					                 		type			="text" 
+					                 		value			="" 
+					                 		style			="width:100px;font:12px;float: left;" 
+					                 		dojotype		="dijit.form.DateTextBox" 
+					                 		maxlength        ="10"
+					                 		constraints     ="{formatLenght:'short',datePattern:'dd-MM-yyyy'}"/></div>
+					      </td>
+					   </tr>
+					<tr>	
+					   <td width="20%"><div id="lblmes" style="display: none;"><label class="estilotxtop"> Elija el mes: </label></div></td>
+					   <td width="20%"><div id="txtmes" style="display: none;">
+					   			<select 	id				="mes"  
+				                 			name			="mes"  
+				                 			value			=""
+				                 			style			="width:150px;font:12px;float: left;" 
+				                 			dojoType		="dijit.form.FilteringSelect" 
+				                 			autoComplete	="true"  
+				                 			invalidMessage	="Elija la ciudad donde Opera">
+				                 			<option value="0"></option>
+				                 			<option value="1">Enero</option>
+				                 			<option value="2">Febrero</option>
+						     				<option value="3">Marzo</option>
+						     				<option value="4">Abril</option>
+						     				<option value="5">Mayo</option>
+						     				<option value="6">Junio</option>
+						     				<option value="7">Julio</option>
+						     				<option value="8">Agosto</option>
+						     				<option value="9">Septiembre</option>
+						     				<option value="10">Octubre</option>
+						     				<option value="11">Noviembre</option>
+						     				<option value="12">Diciembre</option>
+				                 </select>
+				                 </div>
+				       </td>
+					   <td width="20%"></td>
+					   <td width="20%"></td>
+					   <td width="20%"></td>
+					</tr>
+					<tr>
+						   <td ><div id="lblanio" style="display: none;"><label class="estilotxtop">Elija el a&ntilde;o  : </label></div></td>
+						   <td ><div id="txtanio" style="display: none;">
+						   		<select 	id				="anio"  
+				                 			name			="anio"  
+				                 			value			="" 
+				                 			style			="width:150px;font:12px;float: left;"
+				                 			dojoType		="dijit.form.FilteringSelect" 
+				                 			autoComplete	="true" 
+				                 			required		="true" 
+				                 			invalidMessage	="Elija el a&ntilde;o">
+							                 <option value="0" label=""></option>
+					   						 <option value="2011" label="">2011</option>
+					   						 <option value="2012" label="">2012</option>
+					   						 <option value="2013" label="">2013</option>
+					   						 <option value="2014" label="">2014</option>
+					   						 <option value="2015" label="">2015</option>
+					   						 <option value="2016" label="">2016</option>
+					   						 <option value="2017" label="">2017</option>
+					   						 <option value="2018" label="">2018</option>
+					   						 <option value="2019" label="">2019</option>
+					   						 <option value="2020" label="">2020</option>
+					   						 <option value="2021" label="">2021</option>
+							                 </select></div>
+						   </td>	
+						   <td  width="20%"></td>
+						   <td  width="20%"></td>
+						   <td  width="20%"></td>	                 				   		   
+						</tr>
+					   	<tr>
+							<td colspan="2"></td>
+							<td>
+								<div align="center">
+									<button class="estilotxtop" dojoType="dijit.form.Button" onclick="buscarProdConsulta()"><img src="<?php echo $this->baseUrl();?>/imagenes/search_icon.png" height="28px" width="28px"/>Buscar</button>
+				                 </div>
+							</td>
+							<td colspan="2">
+							<div id="idEspera" style="display: none;" align="left">
+			                 		<img  src="<?php echo $this->baseUrl();?>/imagenes/espera.gif" height="32px" width="32px"/>
+			                 	</div>
+							</td>
+						</tr>				  					   					   
+						<tr>
+							<td colspan="5">			
+					          <table dojotype="dojox.grid.DataGrid" id="grilladt" jsId="grilladt" height="280px" style="font-family:'Trebuchet MS', Helvetica, sans-serif;font-size:12px;border: 1px solid #9AC4D8;">
+					            <thead>
+					              <tr>
+					                <th width="25px" formatter="checkFormatter1">Nro</th>
+					                <th field="pd_id" width="5%" hidden="true">Id</th>
+					                <th field="pd_fecha" width="60px">Fecha de Produccion</th>
+					                <th field="pd_tot_renovacion" width="70px">Tot. Renovaciones</th>
+					                <th field="pd_tot_primeravez" width="70px">Tot. Primera Vez</th>	
+					                <th field="pd_tot_enmiendas" width="60px">Tot. Enmiendas</th>
+					                <th field="pd_tot_rechazos" width="50px">Tot. Rechazos</th>
+					                <th field="errores" width="150px">Detalle enmiendas(cant) o errores(cant)</th>
+					                <th field="pd_lugar_emision" width="70px">Lugar Emision</th>
+					              </tr>
+					            </thead>
+					        </table>
+							</td>
+						</tr>
+						<tr><td colspan="5"><div style="font-family:'Trebuchet MS', Helvetica, sans-serif;font-size:11px;font: bold; color: #9AC4D8;">Nota: Para modificar o eliminar un registro debe seleccionar la fila.</div></td></tr>
+						<tr><td colspan="5"><div id="msjresumentotal" style="display: none;"></div></td></tr>
+						<tr>
+							<td colspan="2">
+							<div align="center">
+								<button class="estilotxtop" dojoType="dijit.form.Button" onclick="eliminarProduccion();"><img  src="<?php echo $this->baseUrl();?>/imagenes/socio_delete.png" height="32px" width="32px"/> Eliminar Produccion</button>
+							</div>
+							</td>
+							<td colspan="1">
+							</td>
+							<td colspan="2">
+							<div align="center">
+								<button class="estilotxtop" dojoType="dijit.form.Button" onclick="modificarproduccion();"><img  src="<?php echo $this->baseUrl();?>/imagenes/socio_delete.png" height="32px" width="32px"/>Modificar Produccion</button>
+							</div>
+							</td>
+						</tr>
+					</table>					
+            	</div>
+            <div id="mostrarproduc" style="display: none;" align="center">
+            <div  class="box">
+            <br>
+			<table width="90%">
+                <tr>
+                <td>
+	                <fieldset id="el11">
+					  <legend style="color:blue;">Operador</legend>
+						<table border="0" cellspacing="0" width="100%">
+							<tr>
+						   <td width="18%"><label class="estilotxtop"> Elija el Operador : </label></td>
+						   <td >
+						   	<select 	id				="voperadoresmod"  
+			                 			name			="voperadoresmod"  
+			                 			value			=""
+			                 			store		    ="voperadores" 
+			                 			style			="width:400px;float:left;" 
+			                 			dojoType		="dijit.form.FilteringSelect" 
+			                 			autoComplete	="true"  
+			                 			required     	="true"
+			                 			searchAttr	    ="nombreape" 
+			                 			invalidMessage	="Elija un Operador"
+			                 			onChange        =habilitarCajas();
+			                 			disabled        ="disabled">
+			                 </select>
+			                 <div style="display: none;" align="center">			
+			                 			<input 
+						                 id				="codpd"
+						                 name			="codpd" 
+						                 type			="text"
+				                 		 value			=""
+				                 		 maxlength     	="3"
+				                 		 uppercase		="true"
+				                 		 style			="width:50px;font:12px;" 
+				                 		 dojotype		="dijit.form.ValidationTextBox" 
+				                 		 disabled        ="disabled"/>
+				             </div>
+						   </td>		                 				   		   
+						   </tr>
+						</table>
+	               </fieldset>
+	               &nbsp;
+				   <fieldset id="el11">
+					  <legend style="color:blue;">Datos de Producci&oacute;n</legend>
+						<table border="0" cellspacing="0" width="100%">
+							<tr>
+						   <td width="18%"><label class="estilotxtop"> Fecha de Producci&oacute;n : </label></td>
+						   <td width="30%">
+								   	<input 
+						                 id				="fechaproduc"
+						                 name			="fechaproduc" 
+						                 type			="text" 
+						                 value			="" 
+						                 style			="width:150px;font:12px;" 
+						                 dojotype		="dijit.form.DateTextBox" 
+						                 maxlength      ="10"
+						                 constraints    ="{formatLenght:'short',datePattern:'yyyy-MM-dd'}"
+						                 disabled        ="disabled"/>
+						   </td>
+						   <td><label class="estilotxtop">Lugar de Emisi&oacute;n :</label></td>
+						   <td>
+						   		<select 	id				="lugarem"  
+				                 			name			="lugarem"  
+				                 			value			=""
+				                 			style			="width:150px;font:12px;float: left;" 
+				                 			dojoType		="dijit.form.FilteringSelect" 
+				                 			autoComplete	="true"  
+				                 			disabled        ="disabled"
+				                 			invalidMessage	="Elija la ciudad donde Opera">
+				                 			<option value="0"></option>
+				                 			<option value="Brigada">Brigada</option>
+				                 			<option value="El Guabo">El Guabo</option>
+						     				<option value="Huaquillas">Huaquillas</option>
+						     				<option value="Machala">Machala</option>
+						     				<option value="Pasaje">Pasaje</option>
+						     				<option value="Pinas">Pi&ntilde;as</option>
+						     				<option value="Santa Rosa">Santa Rosa</option>
+				                 </select>
+						   </td>
+						   </tr>
+						   <tr>
+						   <td ><label class="estilotxtop"> Total Renovaciones : </label></td>
+						   <td ><input 
+						                 		id				="totrenova"
+						                 		name			="totrenova" 
+						                 		type			="text"
+						                 		value			=""
+						                 		maxlength     	="3"
+						                 		uppercase		="true"
+						                 		style			="width:150px;font:12px;" 
+						                 		dojotype		="dijit.form.ValidationTextBox" 
+						                 		invalidmessage	="Ingrese el total de renovaciones"
+						                 		disabled        ="disabled"/>
+						   </td>
+						   <td colspan="2"><label class="estilotxtop">Observaci&oacute;n :</label></td>
+						   </tr>
+						   <tr>
+						   <td ><label class="estilotxtop"> Total Primera Vez : </label></td>
+						   <td ><input 
+						                 		id				="totpvez"
+						                 		name			="totpvez" 
+						                 		type			="text"
+						                 		value			=""
+						                 		maxlength     	="3"
+						                 		uppercase		="true"
+						                 		style			="width:150px;font:12px;" 
+						                 		dojotype		="dijit.form.ValidationTextBox" 
+						                 		invalidmessage	="Ingrese el total de primeras veces"
+						                 		disabled        ="disabled"/>
+						   </td>
+						   <td rowspan="3" colspan="2">
+						   <input 
+				                 id				="observacion"
+				                 name			="observacion" 
+				                 type			="text"
+				                 maxlength     	="300"  
+				                 value			="" 
+				                 uppercase      ="true"
+				                 rows           ="3"
+				                 style			="width:410px;font:12px;" 
+				                 dojotype		="dijit.form.SimpleTextarea"
+				                 disabled        ="disabled"/>
+						   </td>		                 				   		   
+						   </tr>
+						   
+						   <tr>
+						   <td ><label class="estilotxtop"> Total Enmiendas: </label></td>
+						   <td ><input 
+						                 		id				="totenmiendas"
+						                 		name			="totenmiendas" 
+						                 		type			="text"
+						                 		value			=""
+						                 		maxlength     	="3"
+						                 		uppercase		="true"
+						                 		style			="width:150px;font:12px;" 
+						                 		dojotype		="dijit.form.ValidationTextBox" 
+						                 		invalidmessage	="Ingrese el total de enmiendas"
+						                 		onblur          ="mostrartotal(this.value,'enm')"
+						                 		disabled        ="disabled"/>
+						   </td>		                 				   		   
+						   </tr>
+						   <tr>
+						   <td ><label class="estilotxtop"> Total Rechazos: </label></td>
+						   <td ><input 
+						                 		id				="totrechazos"
+						                 		name			="totrechazos" 
+						                 		type			="text"
+						                 		value			=""
+						                 		maxlength     	="3"
+						                 		uppercase		="true"
+						                 		style			="width:150px;font:12px;" 
+						                 		dojotype		="dijit.form.ValidationTextBox" 
+						                 		invalidmessage	="Ingrese el total de enmiendas"
+						                 		onblur         ="mostrartotal(this.value,'rec')"
+						                 		disabled        ="disabled"/>
+						   </td>		                 				   		   
+						   </tr>
+						</table>
+	               </fieldset>
+	               &nbsp;
+				   <fieldset id="el11">
+					  <legend style="color:blue;">Detalle de Errores</legend>
+						<table border="0" cellspacing="0" width="100%">
+						<tr height="25" style="height:25pt;">
+						   <td width="18%"><label class="estilotxtop"> Tipo de Error : </label></td>
+						   <td width="30%">
+								   <select 	id				="terror"  
+				                 			name			="terror"  
+				                 			value			=""
+				                 			style			="width:210px;font:12px;float: left;" 
+				                 			dojoType		="dijit.form.FilteringSelect" 
+				                 			autoComplete	="true"  
+				                 			store		    ="terror"
+				                 			searchAttr	    ="te_tipo"
+				                 			disabled        ="disabled"
+				                 			invalidMessage	="Elija el tipo de error">
+				                 </select>
+				                 <button id="btnaddterror" class="estilobtn" 
+			                            dojoType="dijit.form.Button" 
+			                            onclick="dijit.byId('newtError').show();" title="Nuevo Tipo de Error" disabled        ="disabled">+</button>
+						   </td>
+						   <td rowspan="4">
+						   		<table id="grilla" jsId="grilla" dojotype="dojox.grid.DataGrid" store="jsonStore" style="font-family:'Trebuchet MS', Helvetica, sans-serif;font-size:12px;border: 1px solid #9AC4D8;width: 410px;height: 100px;font-weight: bold;" >
+					            <thead>
+					              <tr>
+					                <th width="50px" formatter="checkFormatter1">Nro</th>
+					                <th field="te_id" width="5%" hidden="true">Id</th>
+					                <th field="tipo" width="200px">Tipo</th>
+					                <th field="cantidad" width="100px">Cantidad</th>
+					                <th field="codope" width="20px" hidden="true">Cod Op</th>
+					              </tr>
+					            </thead>
+					        	</table>
+					        	<div id="msjtotenm" align="left" style="font-family:'Trebuchet MS', Helvetica, sans-serif;font-size:11px;font: bold; color: #004064;display: block;"><span id="tote">Numero de errores a ingresar:</span></div>
+						   </td>
+						   </tr>
+						   
+						   <tr>
+						   <td ><label class="estilotxtop"> Cantidad : </label></td>
+						   <td ><input 
+						                 		id				="cantidad"
+						                 		name			="cantidad" 
+						                 		type			="text"
+						                 		value			=""
+						                 		maxlength     	="3"
+						                 		uppercase		="true"
+						                 		style			="width:50px;font:12px;" 
+						                 		dojotype		="dijit.form.ValidationTextBox" 
+						                 		invalidmessage	="Ingrese el total de renovaciones"
+						                 		disabled        ="disabled"/>
+						        <input 
+						                 		id				="mycheck" 
+						                 		name			="mycheck" 
+						                 		dojoType		="dijit.form.CheckBox" 
+						                 		value			="agreed"
+												onChange		="mostraropenmienda(arguments[0])"
+												disabled        ="disabled">
+												<label style="font-family:'Trebuchet MS', Helvetica, sans-serif;font-size:11px;font: bold; color: #108064;">Enmineda de otro operador</label>
+						   </td>
+						   </tr>
+						   <tr>
+						   <td>
+						   <div id="lblopenm" style="display: none;"><label class="estilotxtop"> Seleccione el Operador: </label></div>
+						   </td>
+						   <td>
+						   <div id="txtopenm" style="display: none;">
+						   	<select 	id				="voperadoresenm"  
+			                 			name			="voperadoresenm"  
+			                 			value			=""
+			                 			store		    ="voperadores" 
+			                 			style			="width:250px;float:left;" 
+			                 			dojoType		="dijit.form.FilteringSelect" 
+			                 			autoComplete	="true"  
+			                 			required     	="true"
+			                 			searchAttr	    ="nombreape" 
+			                 			invalidMessage	="Elija un Operador">
+			                 </select>
+						   </div>
+						   </td>
+						   </tr>
+						   <tr>
+						   <td><div align="center">
+						   </div>
+						   </td>
+						   <td ><div align="center">
+						   <button id="btnaddge" class="estilotxtop" dojoType="dijit.form.Button" onclick="addError();" disabled="disabled">A&ntilde;adir</button>
+						   <button id="btndelge" class="estilotxtop" dojoType="dijit.form.Button" onclick="deleteError();" disabled="disabled">Eliminar</button>
+						   </div>
+						   </td>
+						   </tr>
+						</table>
+	               </fieldset>
+	               &nbsp;
+				   <table border="0" cellspacing="5" width="80%">
+					   <tr>
+							<td colspan="2">&nbsp;</td>
+						</tr>
+						<tr>
+							<td><div align="center">
+								<button class="estilotxtop" dojoType="dijit.form.Button" onclick="actualizardatProduc();"><img src="<?php echo $this->baseUrl();?>/imagenes/save.png" height="20px" width="20px"/> Actualizar Datos</button>
+							</div>
+							</td>
+							<td><div align="center">
+								<button class="estilotxtop" dojoType="dijit.form.Button" onclick="cancelarDatosProduc();"><img src="<?php echo $this->baseUrl();?>/imagenes/cancel.png" height="24px" width="24px"/> Cancelar</button>
+							</div>
+							</td>
+						</tr>																				
+				     </table>
+					</td>
+					</tr>
+					</table>
+					</div>
+					</div>
+        </div>            
+     </div>                                

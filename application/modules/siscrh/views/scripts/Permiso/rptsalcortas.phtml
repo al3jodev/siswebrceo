@@ -1,0 +1,93 @@
+        <div dojoType="dijit.layout.AccordionContainer">          
+            <div dojoType="dijit.layout.ContentPane" title="REPORTE DE SALIDAS CORTAS POR FECHA" selected="true" align="center">
+                <table width="95%" border="0">
+                <tr>
+                <td>
+	               <div id="mostrarform" style="display: ;" align="center">
+	               <br>
+	                <fieldset id="el11">
+					  <legend style="color:blue;">	Informacion requerida</legend>
+						<table border="0" cellspacing="2" width="100%">
+						   <tr>
+							   <td width="12%"><div id="lblIngFechaDesde" style="display: block;"><label class="estilotxtop"> Fecha Desde: </label></div></td>
+							   <td width="18%"><div id="txtIngFechaDesde" style="display: block;">
+							   		<input 
+						                 		id				="fechadesde"
+						                 		name			="fechadesde" 
+						                 		type			="text" 
+						                 		value			="" 
+						                 		style			="width:100px;font:12px;float: left;" 
+						                 		dojotype		="dijit.form.DateTextBox" 
+						                 		maxlength        ="10"
+						                 		constraints     ="{formatLenght:'short',datePattern:'yyyy-MM-dd'}"/>
+							        </div>
+							   </td>
+							   <td  width="20%"></td>
+							   <td  width="20%"></td>
+							   <td  width="22%"></td>
+						   </tr>
+						   <tr>
+							   <td width="12%"><div id="lblIngFechaDesde" style="display: block;"><label class="estilotxtop"> Fecha Hasta: </label></div></td>
+							   <td width="18%"><div id="txtIngFechaDesde" style="display: block;">
+							   		<input 
+						                 		id				="fechahasta"
+						                 		name			="fechahasta" 
+						                 		type			="text" 
+						                 		value			="" 
+						                 		style			="width:100px;font:12px;float: left;" 
+						                 		dojotype		="dijit.form.DateTextBox" 
+						                 		maxlength        ="10"
+						                 		constraints     ="{formatLenght:'short',datePattern:'yyyy-MM-dd'}"/>
+							        </div>
+							   </td>
+							   <td  width="20%"></td>
+							   <td  width="20%"></td>
+							   <td  width="22%"></td>
+						   </tr>
+						   <tr>
+							<td colspan="2"></td>
+							<td>
+								<div align="right">
+									<button dojoType="dijit.form.Button" onclick="buscarpermisosxfecha();"><img src="<?php echo $this->baseUrl();?>/imagenes/search_icon.png" height="28px" width="28px"/>Buscar</button>
+				                 </div>
+							</td>
+							<td colspan="2">
+							<div id="idEspera" style="display: none;" align="left">
+			                 		<img  src="<?php echo $this->baseUrl();?>/imagenes/espera.gif" height="32px" width="32px"/>
+			                 	</div>
+							</td>
+						</tr>
+						<tr>
+							<td colspan="5">			
+					          <table dojotype="dojox.grid.DataGrid" id="grilla" jsId="grilla" height="250px" style="font-size:11px;border: 1px solid #9AC4D8;">
+					            <thead>
+					              <tr>
+					                <th width="25px" formatter="checkFormatter1"></th>
+					                <th field="perm_id" hidden="true">Id</th>
+					                <th field="perm_cedula" width="70px">C&eacute;dula</th>
+					                <th field="perm_apenom" width="250px">Apellidos y Nombres</th>
+					                <th field="perm_fecha" width="80px">Fecha</th>	
+					                <th field="perm_hora_salida" width="80px">Hora de Salida</th>
+					                <th field="perm_observacion" width="100px">Observacion</th>	                
+					                <th field="perm_estado" width="10%" formatter="estadoFormatter">Estado</th>
+					              </tr>
+					            </thead>
+					        </table>
+							</td>							
+						</tr>
+						<tr><td colspan="5">
+							<div align="center">
+							   <button id="btnImprimir" name="btnImprimir" class="estilotxtop" dojoType="dijit.form.Button" onclick="imprimirRptsalidascortas();"><img src="<?php echo $this->baseUrl();?>/imagenes/impresora.png" height="32px" width="32px"/>
+							     Imprimir
+							   </button>
+							</div>
+						</td></tr>
+						</table>
+	               </fieldset>
+	               <br>
+				   </div>
+               </td>
+               </tr>
+               </table>
+            </div>            
+       </div>                                
